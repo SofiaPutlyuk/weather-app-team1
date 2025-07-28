@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23206c46-ea3a-44b1-a7f0-4c46225abeb7" name="Изменения" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="23206c46-ea3a-44b1-a7f0-4c46225abeb7" name="Изменения" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +25,7 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "Header(Serhii)",
     "ignore.virus.scanning.warn.message": "true",
@@ -55,6 +54,7 @@
       <workItem from="1753619724385" duration="14000" />
       <workItem from="1753626080451" duration="7000" />
       <workItem from="1753626324235" duration="2466000" />
+      <workItem from="1753709134047" duration="34000" />
     </task>
     <servers />
   </component>
