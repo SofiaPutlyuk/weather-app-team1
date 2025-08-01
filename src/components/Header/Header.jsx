@@ -6,11 +6,11 @@ import { useContext } from 'react';
 import { ModalContext } from '../RegistrationForm/ContextClose&openModal';
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [isOpenModal,setOpenModal]=useState(false)
+    
     const handleClick = () => {
         setIsOpen(!isOpen)
     }
-    const {openModal,valueOpenModal}=useContext(ModalContext)
+    const {valueOpenModal}=useContext(ModalContext)
     return (
         <>
             <header className="header">
