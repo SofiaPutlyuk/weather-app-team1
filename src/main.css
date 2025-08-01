@@ -286,3 +286,32 @@
     height: 42px;
   }
 }
+.gallary {
+  position: relative;
+  width: 800px;
+  height: 220px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  margin-left: 10%;
+}
+
+.gallary-item {
+  list-style: none;
+  position: absolute;
+  top: 0;
+  transition: all 0.5s ease;
+}
+
+.gallary-item img {
+  width: 384px;
+  height: 211px;
+  object-fit: cover;
+}
+
+.title-gallary {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 20px;
+  margin-left: 45px;
+}

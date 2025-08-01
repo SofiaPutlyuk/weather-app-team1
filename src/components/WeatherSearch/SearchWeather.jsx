@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import searchIcon from "../../assets/logo/searchIcon.svg";
+import { Carousel } from "../Carousel/Carousel";
 export const SearchWeather = () => {
     const [city, setCity] = useState("")
     const [weather, setWeather] = useState(null)
@@ -22,11 +23,14 @@ export const SearchWeather = () => {
         setCity(e.target.value)
     }
     return (
+        <>
         <form className="form-weather" onSubmit={(e) => e.preventDefault()}>
             <input type="text" placeholder="Search location..." onChange={handleInputWeather} value={city} />
             <button type="button" onClick={fetchLocation} >
                 <img src={searchIcon} alt="search-icon" className="search-icon" />
             </button>
         </form>
+        <Carousel query={city} />
+        </>
     )
 }
