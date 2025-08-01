@@ -324,6 +324,7 @@
   width: 100%;
   height: 100%;
   z-index: 1000;
+  justify-content: center;
 }
 .Background_close {
   display: flex;
@@ -331,6 +332,9 @@
   cursor: pointer;
   background: none;
   border: none;
+  position: relative;
+  top: 20px;
+  right: 10px;
 }
 
 .Form {
@@ -343,6 +347,7 @@
   border-radius: 25px;
   padding-bottom: 27px;
   margin: 0 auto;
+  gap: 25px;
 }
 .Form_nameInput {
   height: 50px;
@@ -368,7 +373,7 @@
 .Form_button {
   width: 114px;
   min-height: 37px;
-  margin: 35px;
+  margin: 0;
   border: none;
   background: #FFB36C;
   border-radius: 10px;
@@ -377,6 +382,7 @@
 .Form_loginLink {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 .Form_signUpText {
   font-weight: 500;
@@ -387,7 +393,6 @@ label {
   display: flex;
   flex-direction: column;
   row-gap: 15px;
-  margin-top: 30px;
   width: 400px;
   font-weight: 500;
   font-size: 14px;
@@ -405,6 +410,7 @@ a {
   .Form {
     width: 400px;
     min-height: 440px;
+    gap: 15px;
   }
   .Form_nameInput {
     height: 40px;
@@ -418,13 +424,12 @@ a {
   .Form_button {
     width: 107px;
     min-height: 35px;
-    margin: 25px;
+    margin: 0;
   }
   .Form_signUpText {
     font-size: 20px;
   }
   label {
-    margin-top: 25px;
     width: 310px;
     font-size: 12px;
   }
@@ -435,13 +440,12 @@ a {
     min-height: 454px;
   }
   .Form_button {
-    margin: 30px;
+    margin: 0;
   }
   .Form_signUpText {
     font-size: 20px;
   }
   label {
-    margin-top: 25px;
     width: 243px;
   }
 }
