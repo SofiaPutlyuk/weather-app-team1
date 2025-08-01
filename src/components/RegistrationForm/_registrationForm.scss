@@ -5,8 +5,14 @@
     background: rgba(0, 0, 0, 0.321);
     width: 100%;
     height: 100%;
-    align-items: center;
     z-index: 1000;
+    &_close{
+        display: flex;
+        margin-left: auto;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
 }
 .Form{
     display: flex;
@@ -17,23 +23,27 @@
     background: white;
     border-radius: 25px;
     padding-bottom: 27px;
+    margin: 0 auto;
     &_nameInput{
         height: 50px;
         background: $lightGrey;
         border: none;
         border-radius: 10px;
+        padding-left: 10px;
     }
     &_emailInput{
         height: 50px;
         background: $lightGrey;
         border: none;
         border-radius: 10px;
+        padding-left: 10px;
     }
     &_passwordInput{
         height: 50px;
         background: $lightGrey;
         border: none;
         border-radius: 10px;
+        padding-left: 10px;
     }
     &_button{
         width: 114px;
