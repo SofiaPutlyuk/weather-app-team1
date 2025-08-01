@@ -1,13 +1,15 @@
 import { useState, useCallback } from "react";
 import searchIcon from "../../assets/logo/searchIcon.svg";
 import { Carousel } from "../Carousel/Carousel";
+import { useModal } from "../ModalMessage/ModalMessage";
 export const SearchWeather = () => {
     const [city, setCity] = useState("")
     const [weather, setWeather] = useState(null)
+     const { showModal } = useModal();
     const fetchLocation = useCallback(async () => {
         try {
             if (!city.trim()) {
-                alert("Введіть назву міста");
+               showModal("Введіть назву міста")
                 return;
             }
             const key = "c899df01a007e998373f0576e8f261c7";
@@ -18,7 +20,7 @@ export const SearchWeather = () => {
         catch (error) {
             console.log("Error", error.message)
         }
-    }, [city])
+    }, [city , showModal])
     const handleInputWeather = (e) => {
         setCity(e.target.value)
     }
