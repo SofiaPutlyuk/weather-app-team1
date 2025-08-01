@@ -2,11 +2,16 @@ import logo from '../../assets/logo/logoForecast.svg';
 import userIcon from "../../assets/logo/user.svg";
 import { IoIosArrowDown } from "react-icons/io";
 import { useState } from "react";
+import { useContext } from 'react';
+import { ModalContext } from '../RegistrationForm/ContextClose&openModal';
+import { useRef } from 'react';
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    
     const handleClick = () => {
         setIsOpen(!isOpen)
     }
+    const {valueOpenModal}=useContext(ModalContext)
     return (
         <>
             <header className="header">
@@ -18,7 +23,7 @@ const Header = () => {
                         <a href="#">Menu</a>
                     </nav>
                     <div className="header_wrapper_userContainer">
-                        <button className="header_wrapper_userContainer_button">Sign Up</button>
+                        <button className="header_wrapper_userContainer_button" onClick={valueOpenModal}>Sign Up</button>
                         <img className="header_wrapper_userContainer_avatar" src={userIcon} alt="userIcon" />
                         <p onClick={handleClick} className="header_wrapper_userContainer_burgerMunuTitle" >Menu</p>
                         <IoIosArrowDown size={14} className="header_wrapper_userContainer_burgerMunuArrow" />

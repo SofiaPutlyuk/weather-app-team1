@@ -316,6 +316,135 @@
   margin-left: 45px;
 }
 
+.Background {
+  position: fixed;
+  flex-direction: column;
+  top: 0;
+  background: rgba(0, 0, 0, 0.321);
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+.Background_close {
+  display: flex;
+  margin-left: auto;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  min-height: 534px;
+  background: white;
+  border-radius: 25px;
+  padding-bottom: 27px;
+  margin: 0 auto;
+}
+.Form_nameInput {
+  height: 50px;
+  background: #E8E8E8;
+  border: none;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.Form_emailInput {
+  height: 50px;
+  background: #E8E8E8;
+  border: none;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.Form_passwordInput {
+  height: 50px;
+  background: #E8E8E8;
+  border: none;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.Form_button {
+  width: 114px;
+  min-height: 37px;
+  margin: 35px;
+  border: none;
+  background: #FFB36C;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.Form_loginLink {
+  display: flex;
+  flex-direction: row;
+}
+.Form_signUpText {
+  font-weight: 500;
+  font-size: 28px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  margin-top: 30px;
+  width: 400px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.errorInformation {
+  color: rgb(224, 4, 4);
+}
+
+a {
+  color: #000000;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .Form {
+    width: 400px;
+    min-height: 440px;
+  }
+  .Form_nameInput {
+    height: 40px;
+  }
+  .Form_emailInput {
+    height: 40px;
+  }
+  .Form_passwordInput {
+    height: 40px;
+  }
+  .Form_button {
+    width: 107px;
+    min-height: 35px;
+    margin: 25px;
+  }
+  .Form_signUpText {
+    font-size: 20px;
+  }
+  label {
+    margin-top: 25px;
+    width: 310px;
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .Form {
+    width: 293px;
+    min-height: 454px;
+  }
+  .Form_button {
+    margin: 30px;
+  }
+  .Form_signUpText {
+    font-size: 20px;
+  }
+  label {
+    margin-top: 25px;
+    width: 243px;
+  }
+}
 .modal-overlay {
   position: fixed;
   top: 0;
