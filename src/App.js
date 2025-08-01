@@ -1,14 +1,13 @@
 import "./main.scss"
 import Header from "./components/Header/Header";
-import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
-import { ModalProvider } from "./components/RegistrationForm/ContextClose&openModal";
+import { SearchWeather } from "./components/WeatherSearch/SearchWeather";
+// import { Carousel } from "./components/Carousel/Carousel";
 export const App = () => {
   return (
     <>
-    <ModalProvider>
-      <Header/>
-      <RegistrationForm/>
-    </ModalProvider>
+    <Header/>
+    <SearchWeather />
+    {/* <Carousel /> */}
     </>
   )
 }
