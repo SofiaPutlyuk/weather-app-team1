@@ -1,13 +1,13 @@
 import React from 'react';
 import { FaInstagram, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
+import logo from '../../assets/logo/logoForecast.svg';
 import './Footer.scss';
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__logo">
-        24/7<br />
-        forecast
+        <img src={logo} alt="24/7 forecast logo" />
       </div>
 
       <div className="footer__address">
