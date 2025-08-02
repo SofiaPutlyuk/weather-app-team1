@@ -501,3 +501,146 @@ a {
 .modal-button:hover {
   background-color: #ffa356;
 }
+
+.weather-card {
+  width: 293px;
+  height: 392px;
+  background-color: #E8E8E8;
+  border-radius: 20px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.weather-card:nth-child(2) {
+  display: none;
+}
+
+.weather-card:nth-child(3) {
+  display: none;
+}
+
+.weather-card div {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.weather-card div:nth-child(1) {
+  justify-content: space-between;
+  width: 80%;
+}
+
+.btn-forecast-time {
+  width: 96px;
+  height: 23px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 9px;
+  background-color: #FFB36C;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-forecast-time:nth-child(1) {
+  width: 93px;
+}
+
+.weather-card p {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.weather-card p.text-hour {
+  font-size: 20px;
+}
+
+.weather-card p:nth-child(6) {
+  font-size: 24px;
+}
+
+.weather-card hr {
+  height: 14px;
+  border: 1px solid #000000;
+}
+
+.container-button-forecast {
+  justify-content: center;
+}
+
+.container-button-forecast button {
+  border: none;
+  background: none;
+}
+
+.container-button-forecast button:nth-child(3) {
+  width: 84px;
+  background-color: #FFB36C;
+  border-radius: 5px;
+  height: 27px;
+  align-items: center;
+}
+
+.container-button-forecast img {
+  width: 24px;
+  height: 24px;
+}
+
+.delete {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .weather-card {
+    width: 262px;
+    height: 352px;
+    padding-bottom: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .weather-card:nth-child(2) {
+    display: flex;
+  }
+  .cards-container {
+    display: flex;
+    width: 750px;
+    margin: auto;
+  }
+}
+@media (min-width: 1440px) {
+  .weather-card {
+    width: 320px;
+    height: 430px;
+    padding-bottom: 30px;
+  }
+  .btn-forecast-time {
+    width: 117px;
+    height: 28px;
+    font-size: 10px;
+  }
+  .btn-forecast-time:nth-child(1) {
+    width: 114px;
+  }
+  .weather-card hr {
+    height: 17px;
+  }
+  .weather-card p {
+    font-size: 14px;
+  }
+  .weather-card p:nth-child(6) {
+    font-size: 32px;
+  }
+  .weather-card:nth-child(3) {
+    display: flex;
+  }
+  .cards-container {
+    display: flex;
+    width: 1200px;
+  }
+  .weather-card p.text-hour {
+    font-size: 24px;
+  }
+}
