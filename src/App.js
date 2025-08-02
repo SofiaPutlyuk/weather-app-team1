@@ -4,6 +4,7 @@ import { SearchWeather } from "./components/WeatherSearch/SearchWeather";
 import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
 import { ModalProvider } from "./components/RegistrationForm/ContextClose&openModal";
 import { ModalMessage } from "./components/ModalMessage/ModalMessage";
+import {Cards } from "./components/Cards/Cards";
 export const App = () => {
   return (
     <>
