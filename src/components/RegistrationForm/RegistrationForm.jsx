@@ -4,7 +4,7 @@ import { ModalContext } from "./ContextClose&openModal";
 import { IoClose } from "react-icons/io5";
 import { useModal } from "../ModalMessage/ModalMessage";
 const RegistrationForm = () => {
-  const { openModal, valueOpenModal } = useContext(ModalContext);
+  const { openModal, valueOpenModal,valueOpenLoginForm,openLoginForm } = useContext(ModalContext);
   const {showModal} = useModal()
   return (
     <Formik
@@ -43,7 +43,7 @@ const RegistrationForm = () => {
       }}
     >
       {() => (
-        <div className="Background" style={{ display: openModal ? "flex" : "none" }}>
+        <div className="Background" style={{ display: openModal && !openLoginForm ? "flex" : "none" }}>
           <Form className="Form">
             <button className="Background_close" onClick={valueOpenModal}>
               <IoClose />
@@ -67,7 +67,9 @@ const RegistrationForm = () => {
             <button type="submit" className="Form_button">Sign up</button>
             <label className="Form_loginLink">
               Already have an account?
+              <button className="Form_loginLink_link" onClick={valueOpenLoginForm}>
               <a href="#">Log In</a>
+              </button>
             </label>
           </Form>
         </div>

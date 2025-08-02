@@ -4,7 +4,6 @@ import { IoIosArrowDown } from "react-icons/io";
 import { useState } from "react";
 import { useContext } from 'react';
 import { ModalContext } from '../RegistrationForm/ContextClose&openModal';
-import { useRef } from 'react';
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     
