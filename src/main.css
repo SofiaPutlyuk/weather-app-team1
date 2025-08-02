@@ -355,6 +355,9 @@
   border: none;
   border-radius: 10px;
   padding-left: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
 }
 .Form_emailInput {
   height: 50px;
@@ -362,6 +365,9 @@
   border: none;
   border-radius: 10px;
   padding-left: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
 }
 .Form_passwordInput {
   height: 50px;
@@ -369,6 +375,9 @@
   border: none;
   border-radius: 10px;
   padding-left: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
 }
 .Form_button {
   width: 114px;
@@ -378,11 +387,17 @@
   background: #FFB36C;
   border-radius: 10px;
   cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
 }
 .Form_loginLink {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 10px;
 }
 .Form_signUpText {
   font-weight: 500;
@@ -396,6 +411,7 @@ label {
   width: 400px;
   font-weight: 500;
   font-size: 14px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .errorInformation {
@@ -414,20 +430,27 @@ a {
   }
   .Form_nameInput {
     height: 40px;
+    font-size: 12px;
   }
   .Form_emailInput {
     height: 40px;
+    font-size: 12px;
   }
   .Form_passwordInput {
     height: 40px;
+    font-size: 12px;
   }
   .Form_button {
     width: 107px;
     min-height: 35px;
     margin: 0;
+    font-size: 12px;
   }
   .Form_signUpText {
     font-size: 20px;
+  }
+  .Form_loginLink {
+    font-size: 8px;
   }
   label {
     width: 310px;
@@ -643,4 +666,73 @@ a {
   .weather-card p.text-hour {
     font-size: 24px;
   }
+}
+.footer {
+  background-color: #ffb56b;
+  padding: 20px 30px;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+@media (min-width: 1200px) {
+  .footer {
+    padding: 40px 80px;
+  }
+}
+.footer__logo {
+  margin-bottom: 20px;
+}
+.footer__logo img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+@media (min-width: 768px) {
+  .footer__logo {
+    margin-bottom: 0;
+  }
+}
+.footer__address {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+@media (min-width: 768px) {
+  .footer__address {
+    margin-bottom: 0;
+  }
+}
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .footer__contact {
+    align-items: flex-start;
+  }
+}
+.footer__contact .footer__social-icons {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+.footer__contact .footer__social-icons a {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
