@@ -38,6 +38,9 @@
         border: none;
         border-radius: 10px;
         padding-left: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
     }
 
     &_emailInput {
@@ -46,6 +49,9 @@
         border: none;
         border-radius: 10px;
         padding-left: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
     }
 
     &_passwordInput {
@@ -54,6 +60,9 @@
         border: none;
         border-radius: 10px;
         padding-left: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
     }
 
     &_button {
@@ -64,12 +73,18 @@
         background: $lightOrange;
         border-radius: 10px;
         cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
     }
 
     &_loginLink {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 10px;
     }
 
     &_signUpText {
@@ -85,6 +100,7 @@ label {
     width: 400px;
     font-weight: 500;
     font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .errorInformation {
@@ -103,24 +119,31 @@ a {
 
         &_nameInput {
             height: 40px;
+            font-size: 12px;
         }
 
         &_emailInput {
             height: 40px;
+            font-size: 12px;
         }
 
         &_passwordInput {
             height: 40px;
+            font-size: 12px;
         }
 
         &_button {
             width: 107px;
             min-height: 35px;
             margin: 0;
+            font-size: 12px;
         }
 
         &_signUpText {
             font-size: 20px;
+        }
+        &_loginLink{
+            font-size: 8px;
         }
     }
 
