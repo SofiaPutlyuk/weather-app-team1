@@ -1,6 +1,9 @@
 import React from 'react';
 import { FaInstagram, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
 import logo from '../../assets/logo/logoForecast.svg';
+import IconInstagram from '../../assets/images/instagram_icon.png'
+import IconFacebook from '../../assets/images/facebook_icon.png'
+import IconWhatsApp from '../../assets/images/whatsapp_icon.png'
 import './Footer.scss';
 
 const Footer = () => {
@@ -20,9 +23,9 @@ const Footer = () => {
       <div className="footer__contact">
         <strong>Contact us</strong>
         <div className="footer__social-icons">
-          <a href="#" className="instagram" aria-label="Instagram"><FaInstagram /></a>
-          <a href="#" className="facebook" aria-label="Facebook"><FaFacebookF /></a>
-          <a href="#" className="whatsapp" aria-label="WhatsApp"><FaWhatsapp /></a>
+          <a href="#" ><img src={IconInstagram} alt="icon-instagram" /></a>
+          <a href="#" ><img src={IconFacebook} alt="icon-facebook" /></a>
+          <a href="#" ><img src={IconWhatsApp} alt="icon-whatsapp" /></a>
         </div>
       </div>
     </footer>
