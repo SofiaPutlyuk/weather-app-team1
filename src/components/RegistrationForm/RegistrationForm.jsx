@@ -4,8 +4,12 @@ import { ModalContext } from "./ContextClose&openModal";
 import { IoClose } from "react-icons/io5";
 import { useModal } from "../ModalMessage/ModalMessage";
 const RegistrationForm = () => {
-  const { openModal, valueOpenModal,valueOpenLoginForm,openLoginForm } = useContext(ModalContext);
+  const { openModal,valueOpenModal,ValueOpenLoginForm,authorization,RegistrationUser,userLogin,isLogin} = useContext(ModalContext);
   const {showModal} = useModal()
+  const arrayUsers=JSON.parse(localStorage.getItem("Users")) || [];
+  const closeModal=()=>{
+    valueOpenModal(false)
+  }
   return (
     <Formik
       initialValues={{
@@ -37,15 +41,22 @@ const RegistrationForm = () => {
         return errors;
       }}
       onSubmit={(values) => {
-        localStorage.setItem("Users", JSON.stringify(values));
-        showModal("Registration is successfully!");
+        showModal("Registration is successfully!"); 
         valueOpenModal();
+        RegistrationUser()
+        if(isLogin){
+          return showModal("You are already registered!"); 
+        }
+        userLogin()
+        arrayUsers.push(values)
+        localStorage.setItem("Users",JSON.stringify(arrayUsers))
+        
       }}
     >
       {() => (
-        <div className="Background" style={{ display: openModal && !openLoginForm ? "flex" : "none" }}>
+        <div className="Background" style={{ display: openModal && !authorization ? "flex" : "none" }}>
           <Form className="Form">
-            <button className="Background_close" onClick={valueOpenModal}>
+            <button className="Background_close" onClick={closeModal}>
               <IoClose />
             </button>
             <h3 className="Form_signUpText">Sign up</h3>
@@ -67,7 +78,7 @@ const RegistrationForm = () => {
             <button type="submit" className="Form_button">Sign up</button>
             <label className="Form_loginLink">
               Already have an account?
-              <button className="Form_loginLink_link" onClick={valueOpenLoginForm}>
+              <button className="Form_loginLink_link" onClick={ValueOpenLoginForm}>
               <a href="#">Log In</a>
               </button>
             </label>

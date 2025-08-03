@@ -4,13 +4,16 @@ import { IoIosArrowDown } from "react-icons/io";
 import { useState } from "react";
 import { useContext } from 'react';
 import { ModalContext } from '../RegistrationForm/ContextClose&openModal';
+const registrationUsers= JSON.parse(localStorage.getItem("Users"))||[]
 const Header = () => {
+    const {valueOpenModal,isRegistration,isLogin,userLogin}=useContext(ModalContext)
     const [isOpen, setIsOpen] = useState(false);
-    
     const handleClick = () => {
         setIsOpen(!isOpen)
     }
-    const {valueOpenModal}=useContext(ModalContext)
+    const logout = ()=>{
+        userLogin(false)
+    }
     return (
         <>
             <header className="header">
@@ -22,7 +25,9 @@ const Header = () => {
                         <a href="#">Menu</a>
                     </nav>
                     <div className="header_wrapper_userContainer">
-                        <button className="header_wrapper_userContainer_button" onClick={valueOpenModal}>Sign Up</button>
+                        <button className="header_wrapper_userContainer_buttonSignup" onClick={valueOpenModal}>Sign Up</button>
+                        <button className="header_wrapper_userContainer_buttonSignout" onClick={logout}>Sign Out</button>
+                        <p className="header_wrapper_userContainer_name">{isLogin || isRegistration ? registrationUsers.at(-1).Username :""}</p>
                         <img className="header_wrapper_userContainer_avatar" src={userIcon} alt="userIcon" />
                         <p onClick={handleClick} className="header_wrapper_userContainer_burgerMunuTitle" >Menu</p>
                         <IoIosArrowDown size={14} className="header_wrapper_userContainer_burgerMunuArrow" />
@@ -40,7 +45,9 @@ const Header = () => {
                         <div className="mobileHeader_wrapperr_userContainer_avatar">
                             <img className="mobileHeader_wrapper_userContainer_avatar" src={userIcon} alt="" />
                         </div>
+                        <p className="mobileHelper_wrapper_userContainer_name"></p>
                         <button className="mobileHeader_wrapper_userContainer_button">Sign Up</button>
+                        <button className="mobileHeader_wrapper_userContainer_button">Sign Out</button>
                     </div>
                 </div>
             </section>

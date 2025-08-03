@@ -3,11 +3,14 @@ import { useContext } from "react";
 import { ModalContext } from "../RegistrationForm/ContextClose&openModal";
 import { IoClose } from "react-icons/io5";
 import { useModal } from "../ModalMessage/ModalMessage";
-const users=localStorage.getItem("Users")
-const usersStringify=JSON.stringify(users)
 const LoginForm=()=>{
-    const {openLoginForm,valueOpenLoginForm}=useContext(ModalContext)
+    const {ValueOpenLoginForm,authorization,userLogin,valueOpenModal}=useContext(ModalContext)
     const {showModal} = useModal()
+    const closeModal=()=>{
+      ValueOpenLoginForm(false)
+      valueOpenModal(false)
+
+    }
     return(
         <Formik
               initialValues={{
@@ -16,31 +19,26 @@ const LoginForm=()=>{
               }}
               validate={(values) => {
                 const errors = {};
-                if (values.email !== usersStringify.email) {
-                  errors.email = "Please write correct email";
-                } else {
-                  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                  if (!emailRegex.test(values.email)) {
-                    errors.email = "Email is incorrect";
-                  }
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(values.email)) {
+                  errors.email = "Email is incorrect";
                 }
-        
-                if (values.password !== usersStringify.password) {
-                  errors.password = "Please write password";
-                } else if (values.password.length < 7) {
+                if (values.password.length < 7) {
                   errors.password = "Password must contain 7 characters.";
                 }
                 return errors;
               }}
               onSubmit={() => {
+                ValueOpenLoginForm(false)
+                valueOpenModal(false)          
+                userLogin()
                 showModal("Login is successfully!");
-                valueOpenLoginForm();
               }}
             >
               {() => (
-                <div className="Background" style={{ display: openLoginForm ? "flex" : "none" }}>
+                <div className="Background" style={{ display: authorization ? "flex" : "none" }}>
                   <Form className="Form">
-                    <button className="Background_close" onClick={valueOpenLoginForm}>
+                    <button className="Background_close" onClick={closeModal}>
                       <IoClose />
                     </button>
                     <h3 className="Form_LoginText">Log in</h3>
@@ -54,7 +52,7 @@ const LoginForm=()=>{
                       <Field name="password" placeholder="Password" type="password" className="Form_passwordInput" />
                     </label>
                     <ErrorMessage name="password" component="p" className="Form_errorPassword errorInformation" />
-                    <button type="submit" className="Form_button">Lig in</button>
+                    <button type="submit" className="Form_button">Log in</button>
                   </Form>
                 </div>
               )}
