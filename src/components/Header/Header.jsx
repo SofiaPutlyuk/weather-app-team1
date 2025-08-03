@@ -1,17 +1,23 @@
 import logo from '../../assets/logo/logoForecast.svg';
 import userIcon from "../../assets/logo/user.svg";
 import { IoIosArrowDown } from "react-icons/io";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useContext } from 'react';
 import { ModalContext } from '../RegistrationForm/ContextClose&openModal';
-const registrationUsers= JSON.parse(localStorage.getItem("Users"))||[]
 const Header = () => {
-    const {valueOpenModal,isRegistration,isLogin,userLogin}=useContext(ModalContext)
+    const { valueOpenModal, isRegistration, isLogin, userLogin } = useContext(ModalContext)
     const [isOpen, setIsOpen] = useState(false);
+    const [registrationUsers, setRegistrationUsers] = useState([]);
+    useEffect(() => {
+        const users = JSON.parse(localStorage.getItem("Users")) || [];
+        console.log("Users:", users);
+        localStorage.setItem("Users", JSON.stringify(users));
+        setRegistrationUsers(users);
+    }, [isLogin, isRegistration]);
     const handleClick = () => {
         setIsOpen(!isOpen)
     }
-    const logout = ()=>{
+    const logout = () => {
         userLogin(false)
     }
     return (
@@ -25,9 +31,17 @@ const Header = () => {
                         <a href="#">Menu</a>
                     </nav>
                     <div className="header_wrapper_userContainer">
-                        <button className="header_wrapper_userContainer_buttonSignup" onClick={valueOpenModal}>Sign Up</button>
-                        <button className="header_wrapper_userContainer_buttonSignout" onClick={logout}>Sign Out</button>
-                        <p className="header_wrapper_userContainer_name">{isLogin || isRegistration ? registrationUsers.at(-1).Username :""}</p>
+                        {!isLogin && (
+                            <button type="button" className="header_wrapper_userContainer_buttonSignup" onClick={() => valueOpenModal(true)}>Sign Up</button>
+                        )}
+                            {isLogin && registrationUsers.length > 0 && (
+                            <p className="header_wrapper_userContainer_name">
+                                {registrationUsers[registrationUsers.length - 1]?.Username}
+                            </p>
+                        )}
+                        {isLogin && (
+                            <button type="button" className="header_wrapper_userContainer_buttonSignout" onClick={logout}>Sign Out</button>
+                        )}
                         <img className="header_wrapper_userContainer_avatar" src={userIcon} alt="userIcon" />
                         <p onClick={handleClick} className="header_wrapper_userContainer_burgerMunuTitle" >Menu</p>
                         <IoIosArrowDown size={14} className="header_wrapper_userContainer_burgerMunuArrow" />
@@ -46,8 +60,12 @@ const Header = () => {
                             <img className="mobileHeader_wrapper_userContainer_avatar" src={userIcon} alt="" />
                         </div>
                         <p className="mobileHelper_wrapper_userContainer_name"></p>
-                        <button className="mobileHeader_wrapper_userContainer_button">Sign Up</button>
-                        <button className="mobileHeader_wrapper_userContainer_button">Sign Out</button>
+                        {!isLogin && (
+                            <button type="button" className="mobileHeader_wrapper_userContainer_button">Sign Up</button>
+                        )}
+                        {isLogin && (
+                            <button type="button" className="mobileHeader_wrapper_userContainer_button">Sign Out</button>
+                        )}
                     </div>
                 </div>
             </section>

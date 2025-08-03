@@ -6,7 +6,7 @@ import { useModal } from "../ModalMessage/ModalMessage";
 const RegistrationForm = () => {
   const { openModal,valueOpenModal,ValueOpenLoginForm,authorization,RegistrationUser,userLogin,isLogin} = useContext(ModalContext);
   const {showModal} = useModal()
-  const arrayUsers=JSON.parse(localStorage.getItem("Users")) || [];
+  // const arrayUsers=JSON.parse(localStorage.getItem("Users")) || [];
   const closeModal=()=>{
     valueOpenModal(false)
   }
@@ -48,6 +48,8 @@ const RegistrationForm = () => {
           return showModal("You are already registered!"); 
         }
         userLogin()
+        const existing = JSON.parse(localStorage.getItem("Users"));
+        const arrayUsers = Array.isArray(existing) ? existing : [];
         arrayUsers.push(values)
         localStorage.setItem("Users",JSON.stringify(arrayUsers))
         
