@@ -1,0 +1,64 @@
+.banner {
+  background-image: url("../../assets/images/Banner_background.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+.banner__title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.banner__content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.banner__description, .banner__date {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  max-width: 250px;
+  white-space: pre-line;
+}
+.banner__divider {
+  height: 80px;
+  width: 1px;
+  background-color: #fff;
+}
+.banner__search-box {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+}
+.banner__search-box input {
+  flex-grow: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px 0 0 8px;
+}
+.banner__search-box button {
+  background-color: #ffb56b;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  padding: 0 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
