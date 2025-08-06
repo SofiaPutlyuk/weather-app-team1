@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './Banner.scss';
 
 const Banner = () => {
   const [currentDate, setCurrentDate] = useState('');
