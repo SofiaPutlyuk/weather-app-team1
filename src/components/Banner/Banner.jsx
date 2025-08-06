@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const Banner = () => {
+const Banner = ({children}) => {
   const [currentDate, setCurrentDate] = useState('');
 
   useEffect(() => {
@@ -26,15 +26,30 @@ const Banner = () => {
   return (
     <div className="banner">
       <h1 className="banner__title">Weather dashboard</h1>
-      <div className="banner__content">
+      <div className="banner__content hideBig">
+        <div>
         <p className="banner__description">
           Create your personal list of <br />
           favorite cities and always be <br />
           aware of the weather.
         </p>
-        <div className="banner__divider" />
-        <p className="banner__date">{currentDate}</p>
+         <p className="banner__date">{currentDate}</p>
+         </div>
+          <div className="banner__divider"></div>
       </div>
+      {/*Для великих екранів */}
+        <div className="banner__content hideSmall" >
+        <div style={{display:'flex',flexDirection:'row',alignItems:'center', gap:30}}>
+        <p className="banner__description">
+          Create your personal list of <br />
+          favorite cities and always be <br />
+          aware of the weather.
+        </p>
+        <div className="banner__divider"></div>
+         <p className="banner__date">{currentDate}</p>
+         </div>
+      </div>
+      {children}
     </div>
   );
 };
