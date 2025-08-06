@@ -6,11 +6,14 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
         &_wrapper{
             width: 90%;
             &_news{
                 display: flex;
                 justify-content: space-between; 
+                width: 100%;
+                overflow: scroll;
              }
              &_name{
                 font-family: 'Montserrat', sans-serif;
