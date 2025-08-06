@@ -74,6 +74,10 @@
       }
       &_name{
         padding-right: 10px;
+        font-weight: 500;
+        font-size: 15px;
+        font-family: 'Montserrat Alternates', sans-serif;
+
       }
     }
   }
@@ -131,6 +135,8 @@
         }
         &_name{
           padding-right: 8px;
+          font-weight: 500;
+          font-size: 15px;
         }
       }
     }
@@ -152,7 +158,7 @@
       &_nav {
         display: none;
 
-        &_a {
+        a {
           line-height: normal;
         }
       }
