@@ -13,7 +13,7 @@
                 display: flex;
                 justify-content: space-between; 
                 width: 100%;
-                overflow: scroll;
+                flex-wrap: wrap;
              }
              &_name{
                 font-family: 'Montserrat', sans-serif;
