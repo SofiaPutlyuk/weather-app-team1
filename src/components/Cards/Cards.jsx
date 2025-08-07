@@ -4,7 +4,11 @@ import DeleteIcon from "../../assets/logo/delete.svg";
 import { ForecastEight } from "../Forecast8day/ForecastEight";
 import { useState } from "react";
 export const Cards = ({ info }) => {
-   const [showForecastEight, setShowForecastEight] = useState(false);
+  const [forecastView, setForecastView] = useState({
+    showWeekly: false,
+    showAdditional: false
+  });
+
   if (!info || !info.list || !info.list[0]) {
     return console.log("Loading");
   }
@@ -15,8 +19,11 @@ export const Cards = ({ info }) => {
     searchCard.classList.add("delete")
   }
   const handleWeeklyClick = () => {
-    setShowForecastEight(true);
+     setForecastView({ showWeekly: true, showAdditional: false });
   };
+  const handleSeeMore = () => {
+ setForecastView({ showWeekly: true, showAdditional: true });
+}
   return (
     <>
       <div className="cards-container">
@@ -55,7 +62,7 @@ export const Cards = ({ info }) => {
                 <button>
                   <img src={HeartIcon} alt="icon-heart" />
                 </button>
-                <button>
+                <button onClick={handleSeeMore}>
                   See more
                 </button>
                 <button onClick={deleteCard}>
@@ -66,7 +73,7 @@ export const Cards = ({ info }) => {
           );
         })}
       </div>
-      {showForecastEight && <ForecastEight infoDay={info} />}
+      {forecastView.showWeekly  && <ForecastEight infoDay={info} handleShowAdditional={forecastView.showAdditional}/>}
     </>
   );
 };

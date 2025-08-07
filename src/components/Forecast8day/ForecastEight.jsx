@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react"
-export const ForecastEight = ({ infoDay }) => {
+import { SectionAdditional } from "../SectionAdditional/SectionAdditional";
+export const ForecastEight = ({ infoDay , handleShowAdditional }) => {
     const key = "2097ff4876214395bdf130955250508";
     const [forecast, setForecast] = useState([]);
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
@@ -19,6 +20,7 @@ export const ForecastEight = ({ infoDay }) => {
         fetchForecastDay()
     }, [fetchForecastDay])
     return (
+        <>
         <div className="container-background-forecast">
             <p className="title-weekly-forecast hideBig">Weekly forecast</p>
             <p className="title-weekly-forecast hide">8-day forecast</p>
@@ -45,6 +47,7 @@ export const ForecastEight = ({ infoDay }) => {
                 })}
             </div>
         </div>
-
+         {handleShowAdditional && <SectionAdditional infoDay={forecast} />}
+</>
     )
 }
