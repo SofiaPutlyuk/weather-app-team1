@@ -6,6 +6,7 @@ import { ModalProvider } from "./components/RegistrationForm/ContextClose&openMo
 import { ModalMessage } from "./components/ModalMessage/ModalMessage";
 import {Footer} from "./components/Footer/Footer";
 import LoginForm from "./components/LoginForm/LoginForm";
+import WeatherChart from "./components/WeatherChart/WeatherChart";
 export const App = () => {
   return (
     <>
@@ -15,6 +16,7 @@ export const App = () => {
       <RegistrationForm/>
       <LoginForm/>
     <SearchWeather />
+    <WeatherChart />
     <Footer/>
     </ModalMessage>
     </ModalProvider>
