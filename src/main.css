@@ -258,6 +258,13 @@
   border: 2px solid #FFB36C;
 }
 
+.form-weather input::-moz-placeholder {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 6px;
+  color: #878787;
+}
+
 .form-weather input::placeholder {
   font-family: "Montserrat";
   font-weight: 500;
@@ -294,6 +301,9 @@
     height: 27px;
     padding-bottom: 0;
   }
+  .form-weather input::-moz-placeholder {
+    font-size: 10px;
+  }
   .form-weather input::placeholder {
     font-size: 10px;
   }
@@ -313,6 +323,9 @@
   .form-weather input {
     width: 580px;
     height: 42px;
+  }
+  .form-weather input::-moz-placeholder {
+    font-size: 14px;
   }
   .form-weather input::placeholder {
     font-size: 14px;
@@ -342,7 +355,8 @@
 .gallary-item img {
   width: 384px;
   height: 211px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .title-gallary {
@@ -715,6 +729,92 @@ a {
     font-size: 24px;
   }
 }
+.banner {
+  background-image: url("../../assets/images/Banner_background.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+.banner__title {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.banner .hideBig {
+  display: flex;
+}
+.banner .hideSmall {
+  display: none;
+}
+.banner__content {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.banner__content .banner__description,
+.banner__content .banner__date {
+  font-size: 10px;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+.banner__content .banner__divider {
+  height: 80px;
+  width: 2px;
+  background-color: #FFF;
+}
+@media (min-width: 768px) {
+  .banner__title {
+    font-size: 2.2rem;
+  }
+  .banner .hideBig {
+    display: none;
+  }
+  .banner .hideSmall {
+    display: flex;
+  }
+  .banner__content {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  .banner__content .banner__divider {
+    height: 110px;
+  }
+  .banner__content .banner__description,
+  .banner__content .banner__date {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1440px) {
+  .banner__title {
+    font-size: 3rem;
+  }
+  .banner .hideBig {
+    display: none;
+  }
+  .banner__content {
+    gap: 3rem;
+  }
+  .banner__content .banner__divider {
+    height: 144px;
+  }
+  .banner__content .banner__description,
+  .banner__content .banner__date {
+    font-size: 24px;
+  }
+}
+
 .wrapper-forecast-eight {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1130,7 +1230,8 @@ a {
   width: 270px;
   height: 208px;
   border-radius: 10px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .Item_title {
   font-family: "Montserrat", sans-serif;
@@ -1316,88 +1417,18 @@ a {
   text-decoration: none;
 }
 
-.banner {
-  background-image: url("../../assets/images/Banner_background.png");
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
-  color: #FFF;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem;
-}
-.banner__title {
-  font-family: "Montserrat Alternates", sans-serif;
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-}
-.banner .hideBig {
-  display: flex;
-}
-.banner .hideSmall {
-  display: none;
-}
-.banner__content {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 2rem;
-  align-items: center;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.banner__content .banner__description,
-.banner__content .banner__date {
-  font-size: 10px;
-  line-height: 1.5;
-  white-space: pre-line;
-}
-.banner__content .banner__divider {
-  height: 80px;
-  width: 2px;
-  background-color: #FFF;
-}
-@media (min-width: 768px) {
-  .banner__title {
-    font-size: 2.2rem;
+@keyframes rotate-center {
+  0% {
+    transform: rotate(0);
   }
-  .banner .hideBig {
-    display: none;
-  }
-  .banner .hideSmall {
-    display: flex;
-  }
-  .banner__content {
-    flex-direction: row;
-    gap: 1.5rem;
-  }
-  .banner__content .banner__divider {
-    height: 110px;
-  }
-  .banner__content .banner__description,
-  .banner__content .banner__date {
-    font-size: 14px;
+  100% {
+    transform: rotate(360deg);
   }
 }
-@media (min-width: 1440px) {
-  .banner__title {
-    font-size: 3rem;
-  }
-  .banner .hideBig {
-    display: none;
-  }
-  .banner__content {
-    gap: 3rem;
-  }
-  .banner__content .banner__divider {
-    height: 144px;
-  }
-  .banner__content .banner__description,
-  .banner__content .banner__date {
-    font-size: 24px;
-  }
+.Loader {
+  animation: rotate-center 0.6s linear infinite;
+  transform-origin: center center;
+  display: block;
+  margin: auto;
+  width: auto;
 }
