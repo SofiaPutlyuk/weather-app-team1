@@ -4,12 +4,13 @@ import User from "../../assets/logo/user.svg";
 import { LuLockKeyhole } from "react-icons/lu";
 import { FaEnvelope } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
-export const ModalEdit = ({ onClose }) => {
-    const getCurrentUser = JSON.parse(localStorage.getItem("currentUser"))
+export const ModalEdit = ({ onClose , onSave }) => {
+    const users = JSON.parse(localStorage.getItem("Users")) || [];
+    const getCurrentUser = users.length ? users[users.length - 1] : {};
     const [photo, setPhoto] = useState(getCurrentUser?.photo || User);
     console.log(photo)
     const fileInputRef = useRef(null)
-    const [newName, setNewName] = useState(getCurrentUser.name || "")
+    const [newName, setNewName] = useState(getCurrentUser.Username || "")
     const [newEmail, setNewEmail] = useState(getCurrentUser.email || "")
     const [newPassword, setNewPassword] = useState(getCurrentUser.password || "")
 
@@ -41,13 +42,19 @@ export const ModalEdit = ({ onClose }) => {
     }
     const handleSave = () => {
         const objNewInfo = {
-            name: newName,
+            Username: newName,
             email: newEmail,
             password: newPassword,
-            photo: photo 
+            photo: photo
         }
         localStorage.setItem("currentUser", JSON.stringify(objNewInfo))
+        let users = JSON.parse(localStorage.getItem("Users")) || [];
+        if (users.length) {
+            users[users.length - 1] = objNewInfo;
+            localStorage.setItem("Users", JSON.stringify(users));
+        }
         onClose()
+        onSave()
     }
     return (
         <div className="overlay">

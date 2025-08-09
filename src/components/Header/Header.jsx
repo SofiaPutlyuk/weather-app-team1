@@ -11,6 +11,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [registrationUsers, setRegistrationUsers] = useState([]);
   const [isOpenEdit, setIsOpenEdit] = useState(false)
+  const [userPhoto, setUserPhoto] = useState(userIcon);
   useEffect(() => {
     const users = JSON.parse(localStorage.getItem("Users")) || [];
     console.log("Users:", users);
@@ -26,6 +27,18 @@ const Header = () => {
   const handleOpenEdit = () => {
     setIsOpenEdit(!isOpenEdit)
   }
+  useEffect(() => {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  if (currentUser?.photo) {
+    setUserPhoto(currentUser.photo);
+  } else {
+    setUserPhoto(userIcon);
+  }
+}, [isLogin, isOpenEdit]);
+const reloadUsers = () => {
+  const users = JSON.parse(localStorage.getItem("Users")) || [];
+  setRegistrationUsers(users);
+};
   return (
     <>
       <header className="header">
@@ -54,7 +67,7 @@ const Header = () => {
             )}
             {isLogin ? (
               <button onClick={handleOpenEdit} style={{ border: "none", background: "none" }}>
-                <img className="header_wrapper_userContainer_avatar" src={userIcon} alt="userIcon" />
+                <img className="header_wrapper_userContainer_avatar" src={userPhoto} alt="userIcon" />
               </button>
             ) : (
               <>
@@ -96,7 +109,7 @@ const Header = () => {
           </div>
         </div>
       </section>
-      {isOpenEdit && <ModalEdit onClose={() => { setIsOpenEdit(false) }} />}
+      {isOpenEdit && <ModalEdit onClose={() => { setIsOpenEdit(false) } } onSave={reloadUsers}/>}
     </>
   );
 };
