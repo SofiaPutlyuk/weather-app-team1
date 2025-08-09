@@ -49,11 +49,11 @@
 }
 .header_wrapper_userContainer {
   display: flex;
-  width: 166px;
+  min-width: 166px;
   justify-content: space-between;
   align-items: center;
 }
-.header_wrapper_userContainer_button {
+.header_wrapper_userContainer_buttonSignup {
   width: 90px;
   height: 35px;
   background: #FFB36C;
@@ -64,12 +64,32 @@
   border-radius: 10px;
   cursor: pointer;
   font-family: "Montserrat Alternates", sans-serif;
+  margin-right: 10px;
+}
+.header_wrapper_userContainer_buttonSignout {
+  width: 90px;
+  height: 35px;
+  background: #FFB36C;
+  color: #000000;
+  font-weight: 500;
+  font-size: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Montserrat Alternates", sans-serif;
+  margin-right: 10px;
 }
 .header_wrapper_userContainer_burgerMunuTitle {
   display: none;
 }
 .header_wrapper_userContainer_burgerMunuArrow {
   display: none;
+}
+.header_wrapper_userContainer_name {
+  padding-right: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  font-family: "Montserrat Alternates", sans-serif;
 }
 .header_mobileWrapper {
   display: none;
@@ -100,15 +120,28 @@
   .header_wrapper_userContainer {
     width: 138px;
   }
-  .header_wrapper_userContainer_button {
+  .header_wrapper_userContainer_buttonSignup {
     width: 73px;
     height: 28px;
     font-weight: 500;
     font-size: 10px;
+    margin-right: 8px;
+  }
+  .header_wrapper_userContainer_buttonSignout {
+    width: 73px;
+    height: 28px;
+    font-weight: 500;
+    font-size: 10px;
+    margin-right: 8px;
   }
   .header_wrapper_userContainer_avatar {
     width: 40px;
     height: 40px;
+  }
+  .header_wrapper_userContainer_name {
+    padding-right: 8px;
+    font-weight: 500;
+    font-size: 15px;
   }
 }
 @media screen and (min-width: 320px) and (max-width: 768px) {
@@ -125,7 +158,7 @@
   .header_wrapper_nav {
     display: none;
   }
-  .header_wrapper_nav_a {
+  .header_wrapper_nav a {
     line-height: normal;
   }
   .header_wrapper_userContainer {
@@ -144,6 +177,9 @@
     display: flex;
     font-weight: 500;
     font-size: 10px;
+  }
+  .header_wrapper_userContainer_name {
+    padding-right: 5px;
   }
   .mobileHeader {
     display: flex;
@@ -399,6 +435,12 @@
   font-weight: 500;
   font-size: 10px;
 }
+.Form_loginLink_link {
+  border: none;
+  background: none;
+  font-weight: 500;
+  font-size: 10px;
+}
 .Form_signUpText {
   font-weight: 500;
   font-size: 28px;
@@ -452,6 +494,9 @@ a {
   .Form_loginLink {
     font-size: 8px;
   }
+  .Form_loginLink_link {
+    font-size: 8px;
+  }
   label {
     width: 310px;
     font-size: 12px;
@@ -467,6 +512,9 @@ a {
   }
   .Form_signUpText {
     font-size: 20px;
+  }
+  .Form_loginLink_link {
+    font-size: 12px;
   }
   label {
     width: 243px;
@@ -665,6 +713,537 @@ a {
   }
   .weather-card p.text-hour {
     font-size: 24px;
+  }
+}
+.wrapper-forecast-eight {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  padding-left: 20px;
+}
+
+.hide {
+  display: none;
+}
+
+.container-background-forecast {
+  width: 293px;
+  height: 705px;
+  background-color: #E8E8E8;
+  margin: auto;
+  margin-top: 40px;
+  border-radius: 15px;
+  padding-top: 18px;
+}
+
+.wrapper-forecast-eight div {
+  width: 100px;
+  height: 140px;
+  border-radius: 10px;
+  background-color: #D9D9D9;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  gap: 12px;
+}
+
+.wrapper-forecast-eight div img {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+}
+
+.wrapper-forecast-eight div p {
+  margin: 0;
+  font-family: "Montserrat", "sans-serif";
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.title-weekly-forecast {
+  margin: 0;
+  margin-left: 43px;
+  font-weight: 600;
+  font-family: "Montserrat", "sans-serif";
+  font-size: 10px;
+}
+
+.forecast-card div {
+  width: 96px;
+  height: 45px;
+}
+
+@media (min-width: 768px) {
+  .container-background-forecast {
+    width: 634px;
+    height: 526px;
+  }
+  .hide {
+    display: none;
+  }
+  .wrapper-forecast-eight {
+    grid-template-columns: 1fr;
+  }
+  .wrapper-forecast-eight div {
+    width: 524px;
+    height: 40px;
+    flex-direction: row;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+  }
+  .wrapper-forecast-eight div img {
+    width: 35px;
+    height: 35px;
+  }
+  .container-temperature {
+    height: 0;
+  }
+  .wrapper-forecast-eight div p {
+    font-size: 14px;
+  }
+  .title-weekly-forecast {
+    margin-left: 45px;
+    font-size: 12px;
+  }
+  .forecast-card div {
+    width: 94px;
+    height: 0;
+  }
+}
+@media (min-width: 1440px) {
+  .container-background-forecast {
+    width: 1140px;
+    height: 554px;
+    padding-bottom: 42px;
+    padding-top: 26px;
+    justify-content: space-between;
+  }
+  .hide {
+    display: flex;
+  }
+  .wrapper-forecast-eight div {
+    width: 986px;
+    height: 47px;
+  }
+  .wrapper-forecast-eight div p {
+    font-size: 16px;
+  }
+  .forecast-card div {
+    width: 99px;
+  }
+  .hideBig {
+    display: none;
+  }
+}
+.Background {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  top: 0;
+  background: rgba(0, 0, 0, 0.321);
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  justify-content: center;
+}
+.Background_close {
+  display: flex;
+  margin-left: auto;
+  cursor: pointer;
+  background: none;
+  border: none;
+  position: relative;
+  top: 20px;
+  right: 10px;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  min-height: 534px;
+  background: white;
+  border-radius: 25px;
+  padding-bottom: 27px;
+  margin: 0 auto;
+  gap: 25px;
+}
+.Form_nameInput {
+  height: 50px;
+  background: #E8E8E8;
+  border: none;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.Form_emailInput {
+  height: 50px;
+  background: #E8E8E8;
+  border: none;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.Form_passwordInput {
+  height: 50px;
+  background: #E8E8E8;
+  border: none;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.Form_button {
+  width: 114px;
+  min-height: 37px;
+  margin: 0;
+  border: none;
+  background: #FFB36C;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.Form_loginLink {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.Form_signUpText {
+  font-weight: 500;
+  font-size: 28px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  width: 400px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.errorInformation {
+  color: rgb(224, 4, 4);
+}
+
+a {
+  color: #000000;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .Form {
+    width: 400px;
+    min-height: 440px;
+    gap: 15px;
+  }
+  .Form_nameInput {
+    height: 40px;
+  }
+  .Form_emailInput {
+    height: 40px;
+  }
+  .Form_passwordInput {
+    height: 40px;
+  }
+  .Form_button {
+    width: 107px;
+    min-height: 35px;
+    margin: 0;
+  }
+  .Form_signUpText {
+    font-size: 20px;
+  }
+  label {
+    width: 310px;
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .Form {
+    width: 293px;
+    min-height: 454px;
+  }
+  .Form_button {
+    margin: 0;
+  }
+  .Form_signUpText {
+    font-size: 20px;
+  }
+  label {
+    width: 243px;
+  }
+}
+.wrapper-additional-forecast {
+  display: flex;
+  background-color: #E8E8E8;
+  width: 293px;
+  height: 1205px;
+  border-radius: 15px;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  gap: 35px;
+  margin-top: 35px;
+}
+
+.wrapper-additional-forecast div {
+  background-color: #D9D9D9;
+  border-radius: 10px;
+  width: 207px;
+  height: 160px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.title-additional-forecast {
+  font-family: "Montserrat";
+  font-size: 10px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.description-additional-forecast {
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.image-additional-forecast {
+  width: 60px;
+  height: 60px;
+}
+
+@media (min-width: 768px) {
+  .wrapper-additional-forecast {
+    width: 634px;
+    height: 490px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .wrapper-additional-forecast div {
+    width: 177px;
+    height: 200px;
+  }
+  .title-additional-forecast {
+    font-size: 12px;
+  }
+  .description-additional-forecast {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1440px) {
+  .wrapper-additional-forecast {
+    width: 1140px;
+    height: 554px;
+    border-radius: 20px;
+  }
+  .wrapper-additional-forecast div {
+    width: 290px;
+    height: 217px;
+  }
+  .title-additional-forecast {
+    font-size: 16px;
+  }
+  .description-additional-forecast {
+    font-size: 32px;
+  }
+  .image-additional-forecast {
+    width: 85px;
+    height: 85px;
+  }
+}
+.weather-chart {
+  background-color: #E8E8E8;
+  border-radius: 20px;
+  padding: 1rem;
+  font-family: "Montserrat Alternates", sans-serif;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  max-width: 293px;
+  margin-top: 35px;
+}
+.weather-chart h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+.weather-chart h3 {
+  font-size: 12px;
+}
+@media (min-width: 768px) {
+  .weather-chart {
+    max-width: 634px;
+  }
+}
+@media (min-width: 1440px) {
+  .weather-chart {
+    max-width: 1140px;
+  }
+}
+
+.NewsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.NewsSection_wrapper {
+  width: 90%;
+}
+.NewsSection_wrapper_news {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.NewsSection_wrapper_name {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+.NewsSection_wrapper_button {
+  width: 138px;
+  height: 40px;
+  background: #FFB36C;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+.Item {
+  width: 270px;
+  cursor: pointer;
+}
+.Item_img {
+  width: 270px;
+  height: 208px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.Item_title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .NewsSection {
+    display: none;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .NewsSection {
+    display: none;
+  }
+}
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.avatar {
+  border: none;
+  background: none;
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  background-color: #FFF;
+  width: 400px;
+  height: 500px;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  flex-direction: column;
+}
+
+.form-modal-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.arrow {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.buttonSave {
+  width: 80px;
+  height: 30px;
+  border-radius: 6px;
+  background-color: #FFB36C;
+  color: #FFF;
+  border: none;
+  font-family: "Monserrat";
+}
+
+.buttonSave:hover {
+  border: 2px double #5C2E00;
+  box-shadow: 10px 5px 5px #ffa356;
+}
+
+.inputEditForm {
+  width: 285px;
+  height: 30px;
+  border-radius: 8px;
+  background-color: #E8E8E8;
+  border: none;
+  padding-left: 15px;
+}
+
+.form-modal-edit label {
+  display: flex;
+  align-items: center;
+}
+
+.label-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    width: 500px;
+    height: 600px;
+    border-radius: 15px;
+  }
+  .buttonSave {
+    width: 100px;
+    height: 38px;
+  }
+  .inputEditForm {
+    width: 305px;
+    height: 45px;
   }
 }
 .footer {

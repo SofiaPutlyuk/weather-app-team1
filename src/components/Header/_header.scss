@@ -36,11 +36,10 @@
 
     &_userContainer {
       display: flex;
-      width: 166px;
+      min-width: 166px;
       justify-content: space-between;
       align-items: center;
-
-      &_button {
+      &_buttonSignup {
         width: 90px;
         height: 35px;
         background: $lightOrange;
@@ -51,14 +50,34 @@
         border-radius: 10px;
         cursor: pointer;
         font-family: 'Montserrat Alternates', sans-serif;
+        margin-right: 10px;
       }
-
+      &_buttonSignout{
+        width: 90px;
+        height: 35px;
+        background: $lightOrange;
+        color: $black;
+        font-weight: 500;
+        font-size: 12px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: 'Montserrat Alternates', sans-serif;
+        margin-right: 10px;
+      }
       &_burgerMunuTitle {
         display: none;
       }
 
       &_burgerMunuArrow {
         display: none;
+      }
+      &_name{
+        padding-right: 10px;
+        font-weight: 500;
+        font-size: 15px;
+        font-family: 'Montserrat Alternates', sans-serif;
+
       }
     }
   }
@@ -96,16 +115,28 @@
       &_userContainer {
         width: 138px;
 
-        &_button {
+        &_buttonSignup {
           width: 73px;
           height: 28px;
           font-weight: 500;
           font-size: 10px;
+          margin-right: 8px;
         }
-
+        &_buttonSignout{
+          width: 73px;
+          height: 28px;
+          font-weight: 500;
+          font-size: 10px;
+          margin-right: 8px;
+        }
         &_avatar {
           width: 40px;
           height: 40px;
+        }
+        &_name{
+          padding-right: 8px;
+          font-weight: 500;
+          font-size: 15px;
         }
       }
     }
@@ -127,7 +158,7 @@
       &_nav {
         display: none;
 
-        &_a {
+        a {
           line-height: normal;
         }
       }
@@ -151,6 +182,9 @@
           display: flex;
           font-weight: 500;
           font-size: 10px;
+        }
+        &_name{
+          padding-right: 5px;
         }
       }
     }

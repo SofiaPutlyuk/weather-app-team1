@@ -1,24 +1,38 @@
-import "./main.scss"
+import "./main.scss";
 import Header from "./components/Header/Header";
 import { SearchWeather } from "./components/WeatherSearch/SearchWeather";
 import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
 import { ModalProvider } from "./components/RegistrationForm/ContextClose&openModal";
 import { ModalMessage } from "./components/ModalMessage/ModalMessage";
-import Footer from "./components/Footer/Footer";
-import Banner from "./components/Banner/Banner"
+import LoginForm from "./components/LoginForm/LoginForm";
+import Banner from "./components/Banner/Banner";
+import News from "./components/News/News";
+import Loader from "./components/Loader/Loader";
+import { ProviderLoader } from "./components/Loader/ContextLoader";
+import { ContextLoader } from "./components/Loader/ContextLoader";
+import { useContext } from "react";
+import { Footer } from "./components/Footer/Footer";
 export const App = () => {
+  const {showLoader}=useContext(ContextLoader)
+  if(showLoader){
+    return <Loader />
+  }
   return (
     <>
-    <ModalProvider>
-    <Header/>
-    <Banner/>
-    <ModalMessage>
-      <RegistrationForm/>
-    <SearchWeather />
-    <Footer/>
-    </ModalMessage>
-    </ModalProvider>
+      <ProviderLoader>
+        <ModalProvider>
+          <Header />
+           <Banner/>
+          <ModalMessage>
+            <RegistrationForm />
+            <LoginForm />
+            <News />
+            <SearchWeather />
+            <Footer />
+          </ModalMessage>
+        </ModalProvider>
+      </ProviderLoader>
     </>
-  )
-}
+  );
+};
 export default App;
