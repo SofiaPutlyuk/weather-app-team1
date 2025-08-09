@@ -2,12 +2,20 @@ import React, { useEffect, useState } from "react";
 import NewsItem from "./NewsItem";
 
 const News = () => {
-  const key = "23c75b719bf7daa612c390e942d17d29";
+  const key = "25c306795f095fe927f6781a9953545d";
   const [article, setArticle] = useState([]);
   const [item,setItem] =useState(4)
+  console.log(article)
   useEffect(() => {
-    fetch(`https://gnews.io/api/v4/search?q=Pets&apikey=${key}&max=${item} `)
-      .then((response) => response.json())
+    fetch(`https://gnews.io/api/v4/search?q=Pets&apikey=${key}&max=${item}`)
+      .then((response) => {
+       if(!response.ok){
+          return response.json().then(err => {
+          throw new Error(`Error ${response.status}: ${err.message || JSON.stringify(err)}`);
+        });
+       }
+       return response.json()
+      })
       .then((data) => setArticle(data.articles));
   }, [item]);
   const moreItem=()=>{

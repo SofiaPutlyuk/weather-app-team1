@@ -6,6 +6,7 @@ import { ModalProvider } from "./components/RegistrationForm/ContextClose&openMo
 import { ModalMessage } from "./components/ModalMessage/ModalMessage";
 import LoginForm from "./components/LoginForm/LoginForm";
 import News from "./components/News/News";
+// import WeatherChart from "./components/WeatherChart/WeatherChart";
 import {Footer} from "./components/Footer/Footer";
 export const App = () => {
   return (

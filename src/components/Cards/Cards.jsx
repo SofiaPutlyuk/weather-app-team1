@@ -2,10 +2,12 @@ import RefreshIcon from "../../assets/logo/refresh.svg";
 import HeartIcon from "../../assets/logo/heart.svg";
 import DeleteIcon from "../../assets/logo/delete.svg";
 import { ForecastEight } from "../Forecast8day/ForecastEight";
+import WeatherChart from "../WeatherChart/WeatherChart";
 import { useState } from "react";
 export const Cards = ({ info }) => {
   const [forecastView, setForecastView] = useState({
     showWeekly: false,
+    showHourly: false,
     showAdditional: false
   });
 
@@ -19,11 +21,14 @@ export const Cards = ({ info }) => {
     searchCard.classList.add("delete")
   }
   const handleWeeklyClick = () => {
-     setForecastView({ showWeekly: true, showAdditional: false });
+    setForecastView({ showWeekly: true, showAdditional: false });
   };
-  const handleSeeMore = () => {
- setForecastView({ showWeekly: true, showAdditional: true });
+ const handleHourlyForecast = () => {
+  setForecastView(prev => ({ ...prev, showWeekly: false, showAdditional: false, showHourly: true }));
 }
+  const handleSeeMore = () => {
+    setForecastView({ showWeekly: false , showAdditional: true });
+  }
   return (
     <>
       <div className="cards-container">
@@ -45,7 +50,7 @@ export const Cards = ({ info }) => {
               </div>
               <p className="text-hour">{dataHour}:00</p>
               <div>
-                <button className="btn-forecast-time">Hourly forecast</button>
+                <button className="btn-forecast-time" onClick={handleHourlyForecast}>Hourly forecast</button>
                 <button className="btn-forecast-time" onClick={handleWeeklyClick}>Weekly forecast</button>
               </div>
               <div>
@@ -73,7 +78,10 @@ export const Cards = ({ info }) => {
           );
         })}
       </div>
-      {forecastView.showWeekly  && <ForecastEight infoDay={info} handleShowAdditional={forecastView.showAdditional}/>}
+      {forecastView.showWeekly && <ForecastEight infoDay={info} handleShowAdditional={forecastView.showAdditional} />}
+      {forecastView.showHourly && (
+        <WeatherChart infoChart={info} />
+      )}
     </>
   );
 };
