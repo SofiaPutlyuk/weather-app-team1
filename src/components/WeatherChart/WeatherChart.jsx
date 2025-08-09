@@ -54,7 +54,7 @@ const WeatherChart = () => {
           <Line
             type="monotone"
             dataKey="temp"
-            stroke="#f39c12"
+            stroke="#FFB36C"
             strokeWidth={2}
             dot={false}
           />
