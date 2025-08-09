@@ -4,11 +4,13 @@ import { IoIosArrowDown } from "react-icons/io";
 import { useState, useEffect } from "react";
 import { useContext } from "react";
 import { ModalContext } from "../RegistrationForm/ContextClose&openModal";
+import { ModalEdit } from "../ModalEditProfile/ModalEdit";
 const Header = () => {
   const { valueOpenModal, isRegistration, isLogin, userLogin } =
     useContext(ModalContext);
   const [isOpen, setIsOpen] = useState(false);
   const [registrationUsers, setRegistrationUsers] = useState([]);
+  const [isOpenEdit, setIsOpenEdit] = useState(false)
   useEffect(() => {
     const users = JSON.parse(localStorage.getItem("Users")) || [];
     console.log("Users:", users);
@@ -21,6 +23,9 @@ const Header = () => {
   const logout = () => {
     userLogin(false);
   };
+  const handleOpenEdit = () => {
+    setIsOpenEdit(!isOpenEdit)
+  }
   return (
     <>
       <header className="header">
@@ -47,11 +52,19 @@ const Header = () => {
                 {registrationUsers[registrationUsers.length - 1]?.Username}
               </h1>
             )}
-            <img className="header_wrapper_userContainer_avatar" src={userIcon} alt="userIcon"/>
+            {isLogin ? (
+              <button onClick={handleOpenEdit} style={{ border: "none", background: "none" }}>
+                <img className="header_wrapper_userContainer_avatar" src={userIcon} alt="userIcon" />
+              </button>
+            ) : (
+              <>
+               <img className="header_wrapper_userContainer_avatar" src={userIcon} alt="userIcon" />
+               </>
+            )}
             <p onClick={handleClick} className="header_wrapper_userContainer_burgerMunuTitle">
               Menu
             </p>
-            <IoIosArrowDown size={14} className="header_wrapper_userContainer_burgerMunuArrow"/>
+            <IoIosArrowDown size={14} className="header_wrapper_userContainer_burgerMunuArrow" />
           </div>
         </div>
       </header>
@@ -67,7 +80,7 @@ const Header = () => {
           </nav>
           <div className="mobileHeader_wrapper_userContainer">
             <div className="mobileHeader_wrapperr_userContainer_avatar">
-              <img className="mobileHeader_wrapper_userContainer_avatar" src={userIcon} alt=""/>
+              <img className="mobileHeader_wrapper_userContainer_avatar" src={userIcon} alt="" />
             </div>
             <p className="mobileHelper_wrapper_userContainer_name"></p>
             {!isLogin && (
@@ -83,6 +96,7 @@ const Header = () => {
           </div>
         </div>
       </section>
+      {isOpenEdit && <ModalEdit onClose={() => { setIsOpenEdit(false) }} />}
     </>
   );
 };

@@ -1119,6 +1119,103 @@ a {
     display: none;
   }
 }
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.avatar {
+  border: none;
+  background: none;
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  background-color: #FFF;
+  width: 400px;
+  height: 500px;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  flex-direction: column;
+}
+
+.form-modal-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.arrow {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.buttonSave {
+  width: 80px;
+  height: 30px;
+  border-radius: 6px;
+  background-color: #FFB36C;
+  color: #FFF;
+  border: none;
+  font-family: "Monserrat";
+}
+
+.buttonSave:hover {
+  border: 2px double #5C2E00;
+  box-shadow: 10px 5px 5px #ffa356;
+}
+
+.inputEditForm {
+  width: 285px;
+  height: 30px;
+  border-radius: 8px;
+  background-color: #E8E8E8;
+  border: none;
+  padding-left: 15px;
+}
+
+.form-modal-edit label {
+  display: flex;
+  align-items: center;
+}
+
+.label-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    width: 500px;
+    height: 600px;
+    border-radius: 15px;
+  }
+  .buttonSave {
+    width: 100px;
+    height: 38px;
+  }
+  .inputEditForm {
+    width: 305px;
+    height: 45px;
+  }
+}
 .footer {
   background-color: #ffb56b;
   padding: 20px 30px;
