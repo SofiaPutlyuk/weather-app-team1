@@ -3,8 +3,10 @@ import HeartIcon from "../../assets/logo/heart.svg";
 import DeleteIcon from "../../assets/logo/delete.svg";
 import { ForecastEight } from "../Forecast8day/ForecastEight";
 import WeatherChart from "../WeatherChart/WeatherChart";
-import { useState } from "react";
-export const Cards = ({ info }) => {
+import { WeatherContext } from "../WeatherContext/WeatherContext";
+import { useState , useContext } from "react";
+export const Cards = () => {
+   const { weather: info } = useContext(WeatherContext);
   const [forecastView, setForecastView] = useState({
     showWeekly: false,
     showHourly: false,
@@ -27,7 +29,7 @@ export const Cards = ({ info }) => {
   setForecastView(prev => ({ ...prev, showWeekly: false, showAdditional: false, showHourly: true }));
 }
   const handleSeeMore = () => {
-    setForecastView({ showWeekly: false , showAdditional: true });
+    setForecastView({ showWeekly: true , showAdditional: true });
   }
   return (
     <>

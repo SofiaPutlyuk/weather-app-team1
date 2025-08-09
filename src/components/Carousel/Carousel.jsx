@@ -1,10 +1,12 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useState , useContext } from "react"
 import SeaImage from "../../assets/images/sea.png";
 import LakeImage from "../../assets/images/lake.png";
 import MountainImage from "../../assets/images/mountain.png";
 import MountainDawnImage from "../../assets/images/mountainDawn.png";
 import LakeEveningImage from "../../assets/images/lakeEvening.png";
-export const Carousel = ({ query }) => {
+import { WeatherContext } from "../WeatherContext/WeatherContext";
+export const Carousel = () => {
+      const { city } = useContext(WeatherContext);
     const [current, setCurrent] = useState(0)
     const [startX, setStartX] = useState(0);
     const [images, setImages] = useState([
@@ -16,16 +18,14 @@ export const Carousel = ({ query }) => {
     ])
     const fetchImages = useCallback(async () => {
         const key = "50531843-b8fbb02fd39d6518fd4d2cd71"
-        const responsive = await fetch(`https://pixabay.com/api/?key=${key}&q=${query}&image_type=photo&orientation=horizontal&per_page=5`)
+        const responsive = await fetch(`https://pixabay.com/api/?key=${key}&q=${city}&image_type=photo&orientation=horizontal&per_page=5`)
         const data = await responsive.json()
         console.log(data)
         if (data.hits?.length === 5) setImages(data.hits);
-    }, [query])
+    }, [city])
     useEffect(() => {
-        if (query) {
             fetchImages()
             setCurrent(0);
-        }
     }, [fetchImages])
     const hadleNextImage = () => {
         setCurrent((prev) => (prev + 1) % images.length);

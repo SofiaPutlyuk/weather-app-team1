@@ -1,11 +1,9 @@
-import { useState, useCallback } from "react";
+import { useCallback , useContext } from "react";
 import searchIcon from "../../assets/logo/searchIcon.svg";
-import { Carousel } from "../Carousel/Carousel";
+import { WeatherContext } from "../WeatherContext/WeatherContext";
 import { useModal } from "../ModalMessage/ModalMessage";
-import {Cards } from "../Cards/Cards";
 export const SearchWeather = () => {
-    const [city, setCity] = useState("")
-    const [weather, setWeather] = useState(null)
+      const { city, setCity, setWeather } = useContext(WeatherContext);
      const { showModal } = useModal();
     const fetchLocation = useCallback(async () => {
         try {
@@ -34,8 +32,6 @@ export const SearchWeather = () => {
                 <img src={searchIcon} alt="search-icon" className="search-icon" />
             </button>
         </form>
-        <Cards info={weather}/>
-        <Carousel query={city} />
         </>
     )
 }

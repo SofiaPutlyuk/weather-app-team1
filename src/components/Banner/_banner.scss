@@ -2,7 +2,7 @@
   background-image: url('../../assets/images/Banner_background.png');
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
+  height: 393px;
   color: $whiteColor;
   display: flex;
   flex-direction: column;
@@ -94,12 +94,20 @@
       .banner__description,
       .banner__date {
         font-size: 14px;
+         position: relative;
+        bottom: 20px;
       }
+
+   
     }
 
   }
 
   @media (min-width: 1440px) {
+
+    height: 595px;
+    gap: 40px;
+
     &__title {
       font-size: 3rem;
     }
@@ -118,6 +126,7 @@
       .banner__description,
       .banner__date {
         font-size: 24px;
+         bottom: 32px;
       }
     }
   }

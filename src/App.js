@@ -1,6 +1,5 @@
 import "./main.scss";
 import Header from "./components/Header/Header";
-import { SearchWeather } from "./components/WeatherSearch/SearchWeather";
 import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
 import { ModalProvider } from "./components/RegistrationForm/ContextClose&openModal";
 import { ModalMessage } from "./components/ModalMessage/ModalMessage";
@@ -10,11 +9,16 @@ import News from "./components/News/News";
 import Loader from "./components/Loader/Loader";
 import { ProviderLoader } from "./components/Loader/ContextLoader";
 import { ContextLoader } from "./components/Loader/ContextLoader";
-import { useContext } from "react";
+import { WeatherContext } from "./components/WeatherContext/WeatherContext";
+import {Carousel } from "./components/Carousel/Carousel";
+import {Cards} from "./components/Cards/Cards";
+import { useContext, useState } from "react";
 import { Footer } from "./components/Footer/Footer";
 export const App = () => {
-  const {showLoader}=useContext(ContextLoader)
-  if(showLoader){
+  const [city, setCity] = useState("");
+  const [weather, setWeather] = useState(null);
+  const { showLoader } = useContext(ContextLoader)
+  if (showLoader) {
     return <Loader />
   }
   return (
@@ -22,12 +26,15 @@ export const App = () => {
       <ProviderLoader>
         <ModalProvider>
           <Header />
-           <Banner/>
           <ModalMessage>
             <RegistrationForm />
             <LoginForm />
-            <News />
-            <SearchWeather />
+            <WeatherContext.Provider value={{ city, setCity, weather, setWeather }}>
+             <Banner />
+              <Cards />
+              <News />
+              <Carousel />
+            </WeatherContext.Provider>
             <Footer />
           </ModalMessage>
         </ModalProvider>

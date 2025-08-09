@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import {SearchWeather} from "../../components/WeatherSearch/SearchWeather"
 const Banner = ({children}) => {
   const [currentDate, setCurrentDate] = useState('');
 
@@ -50,6 +50,7 @@ const Banner = ({children}) => {
          </div>
       </div>
       {children}
+      <SearchWeather />
     </div>
   );
 };
