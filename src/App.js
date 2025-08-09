@@ -23,6 +23,7 @@ export const App = () => {
   }
   return (
     <>
+    <div className="container">
       <ProviderLoader>
         <ModalProvider>
           <Header />
@@ -39,6 +40,7 @@ export const App = () => {
           </ModalMessage>
         </ModalProvider>
       </ProviderLoader>
+      </div>
     </>
   );
 };

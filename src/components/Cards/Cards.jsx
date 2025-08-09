@@ -4,17 +4,18 @@ import DeleteIcon from "../../assets/logo/delete.svg";
 import { ForecastEight } from "../Forecast8day/ForecastEight";
 import WeatherChart from "../WeatherChart/WeatherChart";
 import { WeatherContext } from "../WeatherContext/WeatherContext";
+import Loader from "../Loader/Loader";
 import { useState , useContext } from "react";
 export const Cards = () => {
-   const { weather: info } = useContext(WeatherContext);
+   const { weather: info , setWeather } = useContext(WeatherContext);
   const [forecastView, setForecastView] = useState({
     showWeekly: false,
     showHourly: false,
     showAdditional: false
   });
-
+  const [loadingIndex, setLoadingIndex] = useState(null);
   if (!info || !info.list || !info.list[0]) {
-    return console.log("Loading");
+    return <Loader />;
   }
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const indexes = [0, 1, 3];
@@ -31,6 +32,19 @@ export const Cards = () => {
   const handleSeeMore = () => {
     setForecastView({ showWeekly: true , showAdditional: true });
   }
+  const refresh = async(cityName , index) => {
+    try {
+    setLoadingIndex(index);              
+   const API_KEY = "c899df01a007e998373f0576e8f261c7";
+   const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${API_KEY}&units=metric`)
+   const data = await res.json();
+     setWeather(data);
+    }catch(error) {
+    console.log("Error",error)
+    } finally {
+    setLoadingIndex(null);
+  }
+  }
   return (
     <>
       <div className="cards-container">
@@ -43,9 +57,8 @@ export const Cards = () => {
           const getYear = data.getFullYear();
           const getDay = data.getDay();
           const nameDay = days[getDay];
-
           return (
-            <div className="weather-card" key={i}>
+            <div className={`weather-card ${loadingIndex === i ? "loading" : ""}`} key={i}>
               <div>
                 <p>{info.city.country}</p>
                 <p>{info.city.name}</p>
@@ -63,8 +76,8 @@ export const Cards = () => {
               <img src={`https://openweathermap.org/img/wn/${infoTime.weather[0].icon}@2x.png`} alt="weather icon" />
               <p>{parseInt(infoTime.main.temp)}°C</p>
               <div className="container-button-forecast">
-                <button>
-                  <img src={RefreshIcon} alt="icon-refresh" />
+                <button onClick={() => refresh(info.city.name, i)}>
+                 { loadingIndex === i ? <Loader /> : <img src={RefreshIcon} alt="icon-refresh" />}
                 </button>
                 <button>
                   <img src={HeartIcon} alt="icon-heart" />
