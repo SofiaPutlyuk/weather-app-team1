@@ -1,4 +1,3 @@
-import React from "react";
 import {
   LineChart,
   Line,
@@ -9,30 +8,10 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const data = [
-  { time: "11 pm", temp: 14 },
-  { time: "Oct 14", temp: 13 },
-  { time: "1 am", temp: 11 },
-  { time: "2 am", temp: 10 },
-  { time: "3 am", temp: 10 },
-  { time: "4 am", temp: 9.8 },
-  { time: "5 am", temp: 10 },
-  { time: "6 am", temp: 11.5 },
-  { time: "7 am", temp: 12.5 },
-  { time: "8 am", temp: 13.5 },
-  { time: "9 am", temp: 14.2 },
-  { time: "10 am", temp: 16 },
-  { time: "11 am", temp: 17.5 },
-  { time: "12 am", temp: 18 },
-  { time: "1 pm", temp: 19.5 },
-  { time: "2 pm", temp: 21.5 },
-  { time: "3 pm", temp: 24 },
-  { time: "4 pm", temp: 25 },
-  { time: "5 pm", temp: 26 },
-  { time: "6 pm", temp: 26 },
-];
 
-const WeatherChart = () => {
+
+const WeatherChart = ({infoChart}) => {
+  const data = transformDataForChart(infoChart);
   return (
     <div className="weather-chart">
       <h3>Hourly forecast</h3>
@@ -63,5 +42,18 @@ const WeatherChart = () => {
     </div>
   );
 };
+function transformDataForChart(infoChart) {
+   if (!infoChart || !infoChart.list) return [];
+     return infoChart.list.map(item => {
+    const date = new Date(item.dt * 1000);
+    let hours = date.getHours();
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12 || 12;
+    const time = `${hours} ${ampm}`;
 
+    const temp = Math.round(item.main.temp);
+
+    return { time, temp };
+  });
+}
 export default WeatherChart;

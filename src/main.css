@@ -1066,6 +1066,8 @@ a {
   font-family: "Montserrat Alternates", sans-serif;
   margin: 0 auto;
   margin-bottom: 30px;
+  max-width: 293px;
+  margin-top: 35px;
 }
 .weather-chart h3 {
   margin-bottom: 10px;
@@ -1073,22 +1075,17 @@ a {
   font-weight: 600;
   color: #000;
 }
-@media (max-width: 480px) {
-  .weather-chart {
-    max-width: 320px;
-  }
-  .weather-chart h3 {
-    font-size: 12px;
-  }
-}
-@media (min-width: 481px) and (max-width: 767px) {
-  .weather-chart {
-    max-width: 600px;
-  }
+.weather-chart h3 {
+  font-size: 12px;
 }
 @media (min-width: 768px) {
   .weather-chart {
-    max-width: 1000px;
+    max-width: 634px;
+  }
+}
+@media (min-width: 1440px) {
+  .weather-chart {
+    max-width: 1140px;
   }
 }
 
