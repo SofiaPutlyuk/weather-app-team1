@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/weather-app-team1/static/css/main.085d37b2.css",
+    "main.js": "/weather-app-team1/static/js/main.e17bc866.js",
+    "static/js/453.d9894acd.chunk.js": "/weather-app-team1/static/js/453.d9894acd.chunk.js",
+    "static/media/Banner_background.png": "/weather-app-team1/static/media/Banner_background.c58733bb3dd3891ead13.png",
+    "static/media/mountain.png": "/weather-app-team1/static/media/mountain.2a9969cbd8e419c5f72d.png",
+    "static/media/lake.png": "/weather-app-team1/static/media/lake.14239f200c194ec46cbc.png",
+    "static/media/mountainDawn.png": "/weather-app-team1/static/media/mountainDawn.c41e56e0aaa91263e1b4.png",
+    "static/media/sea.png": "/weather-app-team1/static/media/sea.c485dfb5ce0eb8fa3600.png",
+    "static/media/heart.svg": "/weather-app-team1/static/media/heart.9ada6729ba6488a580635aa8ec274998.svg",
+    "static/media/lakeEvening.png": "/weather-app-team1/static/media/lakeEvening.1c28983b5f630f04f2ea.png",
+    "static/media/image4.svg": "/weather-app-team1/static/media/image4.c604e8c3d02d9c56d6152291e128994c.svg",
+    "static/media/user.svg": "/weather-app-team1/static/media/user.17ef43de32ef88498d52bf84a6ec4a11.svg",
+    "static/media/searchIcon.svg": "/weather-app-team1/static/media/searchIcon.16426c056935ae8e386148996940805b.svg",
+    "static/media/refresh.svg": "/weather-app-team1/static/media/refresh.4d12bc3cfc0af5dffdc5f2fbe9495973.svg",
+    "static/media/logoForecast.svg": "/weather-app-team1/static/media/logoForecast.0cb68d7435bad4fdf7993ee0ce88aadb.svg",
+    "static/media/pressure.png": "/weather-app-team1/static/media/pressure.6738a440949c9e966d1d.png",
+    "static/media/delete.svg": "/weather-app-team1/static/media/delete.a0a9aaeb686362143ab24d436e7a8abe.svg",
+    "index.html": "/weather-app-team1/index.html",
+    "main.085d37b2.css.map": "/weather-app-team1/static/css/main.085d37b2.css.map",
+    "main.e17bc866.js.map": "/weather-app-team1/static/js/main.e17bc866.js.map",
+    "453.d9894acd.chunk.js.map": "/weather-app-team1/static/js/453.d9894acd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.085d37b2.css",
+    "static/js/main.e17bc866.js"
+  ]
+}
