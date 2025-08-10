@@ -94,7 +94,7 @@
 @media screen and (min-width: 768px) and (max-width: 1200px) {
   .header {
     height: 70px;
-
+    position: relative;
     &_wrapper {
       width: 82%;
 
@@ -192,6 +192,9 @@
 
   .mobileHeader {
     display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
     height: 146px;
     background: #ececec;
 
@@ -224,13 +227,12 @@
       &_userContainer {
         display: flex;
         flex-direction: column;
-        row-gap: 15px;
         height: 83px;
 
         &_button {
           border: none;
           width: 72px;
-          height: 28px;
+          min-height: 28px;
           border-radius: 10px;
           background: $lightOrange;
           font-family: 'Montserrat Alternates', sans-serif;
