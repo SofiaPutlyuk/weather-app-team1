@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import NewsItem from "./NewsItem";
 
 const News = () => {
-  const key = "c33ccae26c945333012e50a9939e71e3";
+  const key = "c80a0b263e985ee12ec966548fe955c3";
   const [article, setArticle] = useState([]);
   const [item,setItem] =useState(4)
   console.log(article)
