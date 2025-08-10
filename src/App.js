@@ -12,6 +12,7 @@ import { ContextLoader } from "./components/Loader/ContextLoader";
 import { WeatherContext } from "./components/WeatherContext/WeatherContext";
 import {Carousel } from "./components/Carousel/Carousel";
 import {Cards} from "./components/Cards/Cards";
+import { GameCloud } from "./components/GameCloud/GameCloud";
 import { useContext, useState } from "react";
 import { Footer } from "./components/Footer/Footer";
 export const App = () => {
@@ -33,6 +34,7 @@ export const App = () => {
             <WeatherContext.Provider value={{ city, setCity, weather, setWeather }}>
              <Banner />
               <Cards />
+              <GameCloud />
               <News />
               <Carousel />
             </WeatherContext.Provider>
