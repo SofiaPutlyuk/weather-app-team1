@@ -1,6 +1,7 @@
 .header {
   width: 100%;
   height: 80px;
+
   &_wrapper {
     display: flex;
     width: 95%;
@@ -37,8 +38,10 @@
     &_userContainer {
       display: flex;
       min-width: 166px;
-      justify-content: space-between;
+      justify-content: end;
+      gap: 10px;
       align-items: center;
+
       &_buttonSignup {
         width: 90px;
         height: 35px;
@@ -51,8 +54,10 @@
         cursor: pointer;
         font-family: 'Montserrat Alternates', sans-serif;
         margin-right: 10px;
+        display: none;
       }
-      &_buttonSignout{
+
+      &_buttonSignout {
         width: 90px;
         height: 35px;
         background: $lightOrange;
@@ -65,6 +70,7 @@
         font-family: 'Montserrat Alternates', sans-serif;
         margin-right: 10px;
       }
+
       &_burgerMunuTitle {
         display: none;
       }
@@ -72,7 +78,8 @@
       &_burgerMunuArrow {
         display: none;
       }
-      &_name{
+
+      &_name {
         padding-right: 10px;
         font-weight: 500;
         font-size: 15px;
@@ -94,6 +101,7 @@
 @media screen and (min-width: 768px) and (max-width: 1200px) {
   .header {
     height: 70px;
+    position: relative;
 
     &_wrapper {
       width: 82%;
@@ -121,19 +129,23 @@
           font-weight: 500;
           font-size: 10px;
           margin-right: 8px;
+          display: block;
         }
-        &_buttonSignout{
+
+        &_buttonSignout {
           width: 73px;
           height: 28px;
           font-weight: 500;
           font-size: 10px;
           margin-right: 8px;
         }
+
         &_avatar {
           width: 40px;
           height: 40px;
         }
-        &_name{
+
+        &_name {
           padding-right: 8px;
           font-weight: 500;
           font-size: 15px;
@@ -183,7 +195,8 @@
           font-weight: 500;
           font-size: 10px;
         }
-        &_name{
+
+        &_name {
           padding-right: 5px;
         }
       }
@@ -193,7 +206,10 @@
   .mobileHeader {
     display: flex;
     height: 146px;
-    background: #ececec;
+    background: $lightGreyTwo;
+    position: absolute;
+    left: 0;
+    right: 0;
 
     &_wrapper {
       display: flex;
@@ -215,6 +231,7 @@
           font-weight: 500;
           font-size: 10px;
           font-family: 'Montserrat Alternates', sans-serif;
+
           &:focus {
             color: $lightOrange;
           }
@@ -224,16 +241,16 @@
       &_userContainer {
         display: flex;
         flex-direction: column;
-        row-gap: 15px;
         height: 83px;
 
         &_button {
           border: none;
           width: 72px;
-          height: 28px;
+          min-height: 28px;
           border-radius: 10px;
           background: $lightOrange;
           font-family: 'Montserrat Alternates', sans-serif;
+          display: block;
         }
 
         &_avatar {
@@ -244,5 +261,10 @@
         }
       }
     }
+  }
+}
+@media(min-width: 1200px)  {
+  .header_wrapper_userContainer_buttonSignup {
+    display:block;
   }
 }
