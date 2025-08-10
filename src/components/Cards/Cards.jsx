@@ -4,10 +4,16 @@ import DeleteIcon from "../../assets/logo/delete.svg";
 import { ForecastEight } from "../Forecast8day/ForecastEight";
 import WeatherChart from "../WeatherChart/WeatherChart";
 import { WeatherContext } from "../WeatherContext/WeatherContext";
+import { FavouriteModal } from "./FavouriteCity";
 import Loader from "../Loader/Loader";
-import { useState , useContext } from "react";
+import { GoHeartFill } from "react-icons/go";
+import { useState, useContext } from "react";
 export const Cards = () => {
-   const { weather: info , setWeather } = useContext(WeatherContext);
+  const { weather: info, setWeather } = useContext(WeatherContext);
+  const [favoriteCities, setFavoriteCities] = useState(() => {
+    return JSON.parse(localStorage.getItem("favoriteCities")) || [];
+  });
+  const [showFavoriteModal, setShowFavoriteModal] = useState(false);
   const [forecastView, setForecastView] = useState({
     showWeekly: false,
     showHourly: false,
@@ -26,24 +32,45 @@ export const Cards = () => {
   const handleWeeklyClick = () => {
     setForecastView({ showWeekly: true, showAdditional: false });
   };
- const handleHourlyForecast = () => {
-  setForecastView(prev => ({ ...prev, showWeekly: false, showAdditional: false, showHourly: true }));
-}
+  const handleHourlyForecast = () => {
+    setForecastView(prev => ({ ...prev, showWeekly: false, showAdditional: false, showHourly: true }));
+  }
   const handleSeeMore = () => {
-    setForecastView({ showWeekly: true , showAdditional: true });
+    setForecastView({ showWeekly: true, showAdditional: true });
   }
-  const refresh = async(cityName , index) => {
+
+  const toggleFavoriteCity = (city) => {
+    setFavoriteCities(prev => {
+      let updated;
+      const exists = prev.some(c => c.id === city.id);
+      if (exists) {
+        updated = prev.filter(c => c.id !== city.id);
+      } else {
+        updated = [...prev, city];
+      }
+      localStorage.setItem("favoriteCities", JSON.stringify(updated));
+      return updated;
+    });
+  };
+  const openFavoriteModal = () => {
+    setShowFavoriteModal(true);
+  };
+
+  const closeFavoriteModal = () => {
+    setShowFavoriteModal(false);
+  };
+  const refresh = async (cityName, index) => {
     try {
-    setLoadingIndex(index);              
-   const API_KEY = "c899df01a007e998373f0576e8f261c7";
-   const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${API_KEY}&units=metric`)
-   const data = await res.json();
-     setWeather(data);
-    }catch(error) {
-    console.log("Error",error)
+      setLoadingIndex(index);
+      const API_KEY = "c899df01a007e998373f0576e8f261c7";
+      const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${API_KEY}&units=metric`)
+      const data = await res.json();
+      setWeather(data);
+    } catch (error) {
+      console.log("Error", error)
     } finally {
-    setLoadingIndex(null);
-  }
+      setLoadingIndex(null);
+    }
   }
   return (
     <>
@@ -77,10 +104,14 @@ export const Cards = () => {
               <p>{parseInt(infoTime.main.temp)}°C</p>
               <div className="container-button-forecast">
                 <button onClick={() => refresh(info.city.name, i)}>
-                 { loadingIndex === i ? <Loader /> : <img src={RefreshIcon} alt="icon-refresh" />}
+                  {loadingIndex === i ? <Loader /> : <img src={RefreshIcon} alt="icon-refresh" />}
                 </button>
-                <button>
-                  <img src={HeartIcon} alt="icon-heart" />
+                <button onClick={() => toggleFavoriteCity({ id: info.list[i].dt, name: info.city.name })}>
+                   {favoriteCities.some(c => c.id === info.list[i].dt)  ? (
+                    <GoHeartFill style={{ color: "red" , width:24 , height:24 }} />
+                  ) : (
+                    <img src={HeartIcon} alt="not favorite" />
+                  )}
                 </button>
                 <button onClick={handleSeeMore}>
                   See more
@@ -93,9 +124,15 @@ export const Cards = () => {
           );
         })}
       </div>
+        <button onClick={openFavoriteModal}  className="buttonFavourite">
+          <GoHeartFill /> Мої улюблені міста
+        </button>
       {forecastView.showWeekly && <ForecastEight infoDay={info} handleShowAdditional={forecastView.showAdditional} />}
       {forecastView.showHourly && (
         <WeatherChart infoChart={info} />
+      )}
+      {showFavoriteModal && (
+        <FavouriteModal cities={favoriteCities} onClose={closeFavoriteModal} />
       )}
     </>
   );
