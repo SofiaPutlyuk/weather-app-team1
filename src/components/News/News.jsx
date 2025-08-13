@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NewsItem from "./NewsItem";
-
+import { Element } from "react-scroll";
 const News = () => {
   const key = "25c306795f095fe927f6781a9953545d";
   const [article, setArticle] = useState([]);
@@ -22,7 +22,8 @@ const News = () => {
     setItem(item + 4)
   }
   return (
-    <section className="NewsSection">
+    <Element name="news">
+      <section className="NewsSection">
       <div className="NewsSection_wrapper">
         <h3 className="NewsSection_wrapper_name">Interacting with our pets</h3>
         <div className="NewsSection_wrapper_news">
@@ -33,6 +34,8 @@ const News = () => {
         <button className="NewsSection_wrapper_button" onClick={moreItem}>See more</button>
       </div>
     </section>
+    </Element>
+  
   );
 };
 export default News;

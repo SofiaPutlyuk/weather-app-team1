@@ -2,9 +2,11 @@ import logo from '../../assets/logo/logoForecast.svg';
 import IconInstagram from '../../assets/images/instagram_icon.png'
 import IconFacebook from '../../assets/images/facebook_icon.png'
 import IconWhatsApp from '../../assets/images/whatsapp_icon.png'
+import { Element } from 'react-scroll';
 export const Footer = () => {
   return (
-    <footer className="footer">
+    <Element name='Footer'>
+      <footer className="footer">
       <div className="footer__logo">
         <img src={logo} alt="24/7 forecast logo" />
       </div>
@@ -23,6 +25,7 @@ export const Footer = () => {
         </div>
       </div>
     </footer>
+    </Element>
   );
 };
 

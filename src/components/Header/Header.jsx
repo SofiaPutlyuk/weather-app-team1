@@ -5,9 +5,13 @@ import { useState, useEffect } from "react";
 import { useContext } from "react";
 import { ModalContext } from "../RegistrationForm/ContextClose&openModal";
 import { ModalEdit } from "../ModalEditProfile/ModalEdit";
+import { Link } from "react-scroll";
+import { WhoWeAreContext } from "../Who_we_are/WhoWeAreContext";
+import WhoWeAre from "../Who_we_are/Who_we_are";
+import MenuNavigation from "../MenuNavigation/MenuNavigation";
+import { MenuContext } from "../MenuNavigation/MenuContext";
 const Header = () => {
-  const { valueOpenModal, isRegistration, isLogin, userLogin } =
-    useContext(ModalContext);
+  const { valueOpenModal, isRegistration, isLogin, userLogin } = useContext(ModalContext);
   const [isOpen, setIsOpen] = useState(false);
   const [registrationUsers, setRegistrationUsers] = useState([]);
   const [isOpenEdit, setIsOpenEdit] = useState(false)
@@ -39,15 +43,28 @@ const reloadUsers = () => {
   const users = JSON.parse(localStorage.getItem("Users")) || [];
   setRegistrationUsers(users);
 };
+const {isShowModalWhoWeAre,WhoWeAreCloseModal}=useContext(WhoWeAreContext)
+const {openMenu,isOpenMenu}=useContext(MenuContext)
   return (
     <>
       <header className="header">
         <div className="header_wrapper">
           <img src={logo} alt="logo" className="header_wrapper_logo" />
           <nav className="header_wrapper_nav">
-            <a href="#">Who we are</a>
+            <a href="#" onClick={WhoWeAreCloseModal}>
+              Who we are
+            </a>
+            <Link
+            to="Footer"
+            smooth={true}
+            duration={500}
+            offset={-50}
+            >
             <a href="#">Contacts</a>
-            <a href="#">Menu</a>
+            </Link>
+            <a href="#" onClick={openMenu}>Menu</a>
+            {isShowModalWhoWeAre ? <WhoWeAre/> : null }
+            {isOpenMenu ? <MenuNavigation/> : null}
           </nav>
           <div className="header_wrapper_userContainer">
             {!isLogin && (
@@ -87,9 +104,18 @@ const reloadUsers = () => {
       >
         <div className="mobileHeader_wrapper">
           <nav className="mobileHeader_wrapper_nav">
-            <a href="#">Who we are</a>
+            <a href="#" onClick={WhoWeAreCloseModal}>Who we are</a>
+            <Link
+            to="Footer"
+            smooth={true}
+            duration={500}
+            offset={-50}
+            >
             <a href="#">Contacts</a>
-            <a href="#">Menu</a>
+            </Link>
+            <a href="#" onClick={openMenu}>Menu</a>
+            {isShowModalWhoWeAre ? <WhoWeAre/> : null }
+            {isOpenMenu ? <MenuNavigation/> : null}
           </nav>
           <div className="mobileHeader_wrapper_userContainer">
             <div className="mobileHeader_wrapperr_userContainer_avatar">

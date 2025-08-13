@@ -10,38 +10,46 @@ import Loader from "./components/Loader/Loader";
 import { ProviderLoader } from "./components/Loader/ContextLoader";
 import { ContextLoader } from "./components/Loader/ContextLoader";
 import { WeatherContext } from "./components/WeatherContext/WeatherContext";
-import {Carousel } from "./components/Carousel/Carousel";
-import {Cards} from "./components/Cards/Cards";
+import { Carousel } from "./components/Carousel/Carousel";
+import { Cards } from "./components/Cards/Cards";
 import { GameCloud } from "./components/GameCloud/GameCloud";
 import { useContext, useState } from "react";
 import { Footer } from "./components/Footer/Footer";
+import { WhoWeAreProvider } from "./components/Who_we_are/WhoWeAreContext";
+import {MenuProvider} from "./components/MenuNavigation/MenuContext";
 export const App = () => {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
-  const { showLoader } = useContext(ContextLoader)
+  const { showLoader } = useContext(ContextLoader);
   if (showLoader) {
-    return <Loader />
+    return <Loader />;
   }
   return (
     <>
-    <div className="container">
-      <ProviderLoader>
-        <ModalProvider>
-          <Header />
-          <ModalMessage>
-            <RegistrationForm />
-            <LoginForm />
-            <WeatherContext.Provider value={{ city, setCity, weather, setWeather }}>
-             <Banner />
-              <Cards />
-              <GameCloud />
-              <News />
-              <Carousel />
-            </WeatherContext.Provider>
-            <Footer />
-          </ModalMessage>
-        </ModalProvider>
-      </ProviderLoader>
+      <div className="container">
+        <ProviderLoader>
+          <ModalProvider>
+            <WhoWeAreProvider>
+              <MenuProvider>
+                <Header />
+                <ModalMessage>
+                  <RegistrationForm />
+                  <LoginForm />
+                  <WeatherContext.Provider
+                    value={{ city, setCity, weather, setWeather }}
+                  >
+                    <Banner />
+                    <Cards />
+                    <GameCloud />
+                    <News />
+                    <Carousel />
+                  </WeatherContext.Provider>
+                  <Footer />
+                </ModalMessage>
+              </MenuProvider>
+            </WhoWeAreProvider>
+          </ModalProvider>
+        </ProviderLoader>
       </div>
     </>
   );

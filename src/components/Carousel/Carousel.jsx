@@ -5,6 +5,7 @@ import MountainImage from "../../assets/images/mountain.png";
 import MountainDawnImage from "../../assets/images/mountainDawn.png";
 import LakeEveningImage from "../../assets/images/lakeEvening.png";
 import { WeatherContext } from "../WeatherContext/WeatherContext";
+import { Element } from "react-scroll";
 export const Carousel = () => {
       const { city } = useContext(WeatherContext);
     const [current, setCurrent] = useState(0)
@@ -44,6 +45,7 @@ export const Carousel = () => {
     }
     return (
         <>
+            <Element name="Carousel">
             <p className="title-gallary">Beautiful nature</p>
             <ul className="gallary" onTouchStart={(e) => setStartX(e.touches[0].clientX)}
                 onTouchEnd={(e) => {
@@ -60,6 +62,7 @@ export const Carousel = () => {
                     )
                 })}
             </ul>
+            </Element>
         </>
     )
 }

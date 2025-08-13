@@ -1,0 +1,86 @@
+.List{
+    display: flex;
+    align-items: center;
+    width:70%;
+    background: white;
+    border-radius: 25px;
+    padding-bottom: 27px;
+    margin: 0 auto;
+    gap: 25px;
+    justify-content: center;
+    position: relative;
+    &_close {
+        position: absolute;
+        display: flex;
+        cursor: pointer;
+        background: none;
+        border: none;
+        top: 0px;
+        right: 10px;
+        bottom: 0;
+        height: 13px;
+    }
+}
+li{
+    list-style: none;
+    margin-top: 10px;
+    transition: 0.3s ease;
+    &:hover{
+        box-shadow: 0 0 15px 3px #FFB36C;    
+    }
+}
+.Background{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.321);
+    z-index: 1000;
+}
+@media (max-width: 1200px) and (min-width: 768px) {
+    .List {
+      flex-direction: row; 
+      gap: 25px;
+      padding: 15px;
+    }
+  
+    .List li img {
+      width: 130px;
+      height: 130px;
+    }
+  
+    .List li h1 {
+      font-size: 18px;
+    }
+  
+    .List li p {
+      font-size: 14px;
+    }
+  }
+  @media (min-width:320px) and (max-width: 768px) {
+    .List {
+        display: block;
+        overflow: scroll;
+        gap: 20px;
+        padding: 10px;
+        width: 90%;
+    }
+  
+    .List li img {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .List li h1 {
+      font-size: 16px;
+    }
+  
+    .List li p {
+      font-size: 12px;
+    }
+  }
