@@ -1,10 +1,13 @@
 {
   "files": {
-    "main.css": "/weather-app-team1/static/css/main.cbfb0a41.css",
-    "main.js": "/weather-app-team1/static/js/main.5b7cb05d.js",
+    "main.css": "/weather-app-team1/static/css/main.96849992.css",
+    "main.js": "/weather-app-team1/static/js/main.5f7e1311.js",
     "static/js/453.d9894acd.chunk.js": "/weather-app-team1/static/js/453.d9894acd.chunk.js",
     "static/media/Banner_background.png": "/weather-app-team1/static/media/Banner_background.c58733bb3dd3891ead13.png",
     "static/media/mountain.png": "/weather-app-team1/static/media/mountain.2a9969cbd8e419c5f72d.png",
+    "static/media/Serhii.png": "/weather-app-team1/static/media/Serhii.4ed34fec2c364481a061.png",
+    "static/media/Nazar.png": "/weather-app-team1/static/media/Nazar.4095d392bbd9f8501dc6.png",
+    "static/media/Sophia.png": "/weather-app-team1/static/media/Sophia.392a80456584848166d4.png",
     "static/media/lake.png": "/weather-app-team1/static/media/lake.14239f200c194ec46cbc.png",
     "static/media/mountainDawn.png": "/weather-app-team1/static/media/mountainDawn.c41e56e0aaa91263e1b4.png",
     "static/media/sea.png": "/weather-app-team1/static/media/sea.c485dfb5ce0eb8fa3600.png",
@@ -18,12 +21,12 @@
     "static/media/pressure.png": "/weather-app-team1/static/media/pressure.6738a440949c9e966d1d.png",
     "static/media/delete.svg": "/weather-app-team1/static/media/delete.a0a9aaeb686362143ab24d436e7a8abe.svg",
     "index.html": "/weather-app-team1/index.html",
-    "main.cbfb0a41.css.map": "/weather-app-team1/static/css/main.cbfb0a41.css.map",
-    "main.5b7cb05d.js.map": "/weather-app-team1/static/js/main.5b7cb05d.js.map",
+    "main.96849992.css.map": "/weather-app-team1/static/css/main.96849992.css.map",
+    "main.5f7e1311.js.map": "/weather-app-team1/static/js/main.5f7e1311.js.map",
     "453.d9894acd.chunk.js.map": "/weather-app-team1/static/js/453.d9894acd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cbfb0a41.css",
-    "static/js/main.5b7cb05d.js"
+    "static/css/main.96849992.css",
+    "static/js/main.5f7e1311.js"
   ]
 }
