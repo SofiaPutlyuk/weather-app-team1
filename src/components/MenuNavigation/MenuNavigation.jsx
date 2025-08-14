@@ -17,7 +17,7 @@ const MenuNavigation = () => {
          duration={500}
          offset={-50}
         >
-            <a href="">News</a>
+            <a href="" className="NewsLink" onClick={openMenu}>News</a>
         </Link>
         <Link
             to="Carousel"
@@ -25,7 +25,7 @@ const MenuNavigation = () => {
             duration={500}
             offset={-50}
         >
-        <a href="">Carousel</a>
+        <a href="" className="CarouselLink" onClick={openMenu}>Carousel</a>
         </Link>
         <Link
             to="Footer"
@@ -33,8 +33,16 @@ const MenuNavigation = () => {
             duration={500}
             offset={-50}
         >
-            <a href="">Footer</a>
+            <a href="" onClick={openMenu}>Footer</a>
         </Link>
+        <Link
+              to="Game"
+              smooth={true}
+              duration={500}
+              offset={-50}
+            >
+            <a href="" onClick={openMenu} className="MobileGame">Game</a>
+            </Link>
       </nav>
     </div>
   );

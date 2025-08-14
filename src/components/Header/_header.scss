@@ -154,6 +154,9 @@
       }
     }
   }
+  .MobileGame{
+    display: flex;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
@@ -203,7 +206,9 @@
       }
     }
   }
-
+  .MobileGame{
+    display: flex;
+  }
   .mobileHeader {
     display: flex;
     height: 146px;
