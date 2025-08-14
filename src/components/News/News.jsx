@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import NewsItem from "./NewsItem";
 import { Element } from "react-scroll";
 const News = () => {
-  const key = "25c306795f095fe927f6781a9953545d";
+  const key = "d1889ecf08735ea94c12d95deb0f23d3";
   const [article, setArticle] = useState([]);
   const [item,setItem] =useState(4)
   console.log(article)
